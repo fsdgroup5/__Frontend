@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+ul{
+    list-style: none;
+}
+.def-form{
+    background-color: rgba(20, 30, 73, 0.7);
+    z-index: 4;
+    position: relative;
+    border-radius: 20px;
+    max-width: 550px;
+    margin: auto;
+    padding: 35px 25px;
+    color: #fff;
+}
+.submitt-btn{
+    width: 100%;
+    max-width:180px;
+    left: 100%;
+    position: relative;
+    transform: translatex(-100%);
+}
+.error-msg{
+background-color: #a23843;
+color: #ffffff;
+padding: 4px 8px;
+display: inline-flex;
+align-self: baseline;
+}
+.inner-bg{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    z-index: 2;
+    filter: blur(0.3px) grayscale(0.6);
+}

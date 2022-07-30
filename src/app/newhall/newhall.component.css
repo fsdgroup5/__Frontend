@@ -1,0 +1,19 @@
+.new-hall-section{
+    padding: 60px 0px;
+    position: relative;
+    min-height: 100vh;
+}
+
+.new-hall-form .form-group{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.new-hall-form label{
+    margin-bottom: 10px;
+}
+.new-hall-form input{
+    padding: 15px ;
+    border-radius: 10px;
+    border: 1px solid rgb(36, 118, 169);
+}

@@ -1,0 +1,32 @@
+<div class="new-hall-section">
+    <div class="inner-bg" style="background-image: url('../../assets/images/room.jpg');"></div>
+
+    <div class="container">
+        <form class="new-hall-form def-form" (ngSubmit)="editHall()" #newHall="ngForm">
+            <div class="form-group">
+                <h2 class="text-center mb-5">Edit Hall Details</h2>  
+                <label>Hall name <span class="text-danger">*</span></label>
+                <input type="text" name="Hallname" #hallname="ngModel"  [(ngModel)]="Hall.HallName" [class.is-invalid]="hallname.invalid && hallname.touched" required>
+                <small class="mt-2 error-msg" *ngIf="hallname.invalid && hallname.touched">Hall name Required</small>
+            </div>
+    
+            <div class="form-group">
+                <label>No. of seats <span class="text-danger">*</span></label>
+                <input type="number" name="seats" #seats="ngModel" min="0" [(ngModel)]="Hall.Seats" [class.is.inavlid]="seats.invalid && seats.touched" required>
+                <small class="mt-2 error-msg" *ngIf="seats.invalid && seats.touched">Enter total no. of seats available</small>
+            </div>
+            
+            <div class="form-group">
+                <label>Location</label>
+                <input type="text" name="location" [(ngModel)]="Hall.Location">
+            </div>
+            
+            <div class="form-group">
+                <label>Hall image Url</label>
+                <input type="text" name="Hall-img-url" [(ngModel)]="Hall.Image">
+            </div>
+    
+            <input type="submit" value="Update" [disabled]="newHall.form.invalid" class="btn btn-warning submitt-btn">
+        </form>  
+    </div>
+</div>

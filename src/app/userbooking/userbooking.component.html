@@ -1,0 +1,63 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="user">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink =""> Book Hall</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink=""> Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+<router-outlet></router-outlet>
+
+  <div class="container">
+    <div class='card'>
+      <div class='card-header'>
+       {{pageTitle}}
+      </div>
+      
+      <div class='card-body'>            
+        <div class='table-responsive'>
+          <table class='table'
+                *ngIf = 'bookingdtls && bookingdtls.length'>
+            <thead>
+              <tr>
+              <th>HallName</th>
+                <th>Date</th>
+                <th>TimeSlot</th>
+                <!-- <th>Status</th> -->
+              </tr>
+             
+            </thead>
+            <tbody>  
+                <tr *ngFor='let bookingdtls of bookingdtls'>
+                    <td>{{ bookingdtls.HallName }}</td>
+                    <td>{{ bookingdtls.DateOfBooking }}</td>
+                    <td>{{ bookingdtls.TimeSlot }}</td>
+                    <td>
+                   <!-- <button type="button" class="btn btn-warning">{{ bookingdtls.Status }}</button>  -->
+
+                    </td>
+
+                    <td>
+                      <button class="btn btn-warning" style="cursor:pointer"  (click)= "editBooking(bookingdtls)" style="margin-right:25px;"> Edit</button>
+                      <button class="btn btn-danger" style="cursor:pointer" (click)= "deleteBooking(bookingdtls)"> Cancel</button>
+                    </td>
+                  </tr>              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+  </div>

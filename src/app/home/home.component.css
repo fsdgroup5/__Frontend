@@ -1,0 +1,45 @@
+@import url(https://fonts.bunny.net/css?family=epilogue:400,800);
+
+html,
+#sect1{
+    min-height: 100vh;
+    margin: 0;
+    font-family: "epilogue";
+    font-size: 62.5%;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 3rem;
+    color:#423a3e;
+}
+
+hr {
+    margin: 20px auto;
+    color: #1629b4;
+    border: 3px solid #1629b4;
+    max-width: 65px;
+    opacity: 1;
+}
+
+.btn-primary {
+    background-color: #1629b4;
+    border-color: #9AA4EC;
+    font-size: 1.8rem;
+    font-weight: 800;
+    padding: 1rem 2.5rem;
+    color: #fffffc;
+    transition: all 1s;
+}
+
+.btn-primary:hover {
+    background-color: #4EA1D3;
+    border-color: #1629B4;
+    transform: scale(0.9);
+}
+
+
+p {
+    font-size: 1rem;
+    color: #22221c;
+}

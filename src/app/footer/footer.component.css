@@ -1,0 +1,35 @@
+.footer{
+    background-color: #121212;
+    color: #fff;
+    padding: 15px 0px;
+}
+.footer-inner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.social-media-ul{
+    display: flex;
+    flex-direction: row;
+}
+.social-media-ul li{
+    margin-right: 15px;
+    transition: 0.4s all;
+    border-radius: 50%;
+}
+.social-media-ul img{
+   width: 40px;
+   height: 40px;
+   padding: 8px;
+   transition: 0.4s all;
+   filter: invert(1);
+}
+
+.social-media-ul li:hover{
+    background-color: #fff;
+}
+.social-media-ul li:hover img{
+    filter: invert(0);
+}
