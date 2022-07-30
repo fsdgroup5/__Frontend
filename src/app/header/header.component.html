@@ -17,19 +17,22 @@
           <a class="nav-link text-white" style="font-size: large;" routerLink="/adminLogin" routerLinkActive="active" *ngIf="!_auth.loggedIn()">Admin-Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" style="font-size: large;" routerLink="/Halls" routerLinkActive="active" *ngIf="_auth.loggedIn()">Halls</a>
+          <a class="nav-link text-white" style="font-size: large;" routerLink="/Halls" routerLinkActive="active" *ngIf="_auth.loggedIn() && !(is_user())">Halls</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" style="font-size: large;" routerLink="/AddHall" routerLinkActive="active" *ngIf="_auth.loggedIn()">Add Hall</a>
+          <a class="nav-link text-white" style="font-size: large;" routerLink="/AddHall" routerLinkActive="active" *ngIf="_auth.loggedIn() && !(is_user())">Add Hall</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" style="font-size: large;" routerLink ="/userbooking"> User Home</a>
+          <a class="nav-link text-white" style="font-size: large;"  *ngIf ="is_user()"  routerLink ="/userbooking"> User Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" style="font-size: large;" routerLink =""> Book Hall</a>
+          <a class="nav-link text-white" style="font-size: large;" *ngIf ="is_user()" routerLink =""> Book Hall</a> 
+         </li>
+         <li class="nav-item">
+          <a class="nav-link text-white"  style="font-size: large; cursor:pointer" routerLinkActive="active" *ngIf="is_user()" (click)="logoutUser()" >Logout</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link text-white"  style="font-size: large; cursor:pointer" routerLinkActive="active" *ngIf="_auth.loggedIn()" (click)="logoutUser()" >Logout</a>
+          <a class="nav-link text-white"  style="font-size: large; cursor:pointer" routerLinkActive="active" *ngIf="_auth.loggedIn() && !(is_user())" (click)="logoutAdmin()" >Logout</a>
         </li>
       </ul>
     </div>

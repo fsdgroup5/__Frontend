@@ -21,39 +21,25 @@ export class UserbookingComponent implements OnInit {
   constructor(private bookingservice:BookingService ,private router:Router) { }
 
   ngOnInit(): void {
-    
-    this.bookingservice.getDetails().subscribe((data)=>{
-      this.bookingdtls=JSON.parse(JSON.stringify(data));
+   let username =localStorage.getItem("username");
+    this.bookingservice.getDetails(username).subscribe((data)=>{
+      this.bookingdtls = JSON.parse(JSON.stringify(data));
+      console.log(this.bookingdtls);
   })
   }
+
+
   editBooking (bookingdtls:any){}
 
-  deleteBooking (bookingdtls:any){}
+  deleteBooking (bookingdtls:any)
+    {
+    this.bookingservice.deleteDetails(bookingdtls._id)
+      .subscribe((data) => {
+        this.bookingdtls = this.bookingdtls.filter(p => p !== bookingdtls);
+      })
+  
+  }
 
 }
 
-
-
-
-
-
-
-
  
-//   editProduct(product:any)
-//   {
-//     localStorage.setItem("editProductId", product._id.toString());
-//     this.router.navigate(['update']);
-
-//   }
-//   deleteProduct(product:any)
-//   {
-//     this.productService.deleteProduct(product._id)
-//       .subscribe((data) => {
-//         this.products = this.products.filter(p => p !== product);
-//       })
-  
-
-//   }
-// }
-  

@@ -18,14 +18,13 @@ export class UserLoginComponent implements OnInit {
     .subscribe(
       res=>{
         localStorage.setItem('token',res.token)
-        localStorage.setItem("username", this.User.username);
+        localStorage.setItem("username", this.User.username.toString());
+        localStorage.setItem('is_user','true');
         this._router.navigate(['/userbooking']);
       }
     )
 
-
   }
-
 
   ngOnInit(): void {
   }

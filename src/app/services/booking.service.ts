@@ -15,9 +15,16 @@ export class BookingService {
     Status:''
   }
     constructor(private http:HttpClient) { }
-    getDetails(){
-      return this.http.get("http://localhost:3000/bookingdlts")
+   
+   
+    getDetails(username:any){
+      return this.http.get("http://localhost:3000/"+username);
     }
+
+    deleteDetails(id:any)
+    {
+        return this.http.delete("http://localhost:3000/remove/"+id)
+     }
 }
 
 
