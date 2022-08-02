@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +20,14 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './auth.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { UserbookingComponent } from './userbooking/userbooking.component';
+import { CalenderComponent } from './calender/calender.component';
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+ ]
+);
+
 
 @NgModule({
   declarations: [
@@ -29,13 +40,16 @@ import { UserbookingComponent } from './userbooking/userbooking.component';
     AdminLoginComponent,
     UserLoginComponent,
     HomeComponent,
-    UserbookingComponent
+    UserbookingComponent,
+    CalenderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FullCalendarModule,
+  
   ],
   providers: [AuthService,  {
     provide: HTTP_INTERCEPTORS,

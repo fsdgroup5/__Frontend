@@ -12,7 +12,7 @@ export class HallService {
   }
   constructor( private http:HttpClient ) { }
   getHalls(id:any){
-    return this.http.get("http://localhost:3000/"+id);
+    return this.http.get("http://localhost:3000/update/"+id);
   }
   getHall(){
     return this.http.get("http://localhost:3000/Halls")
