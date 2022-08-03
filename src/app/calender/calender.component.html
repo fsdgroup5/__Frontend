@@ -16,6 +16,7 @@
                 <form method="post" action="#" #Bookingform="ngForm" (ngSubmit)="Bookhall()">
                     
                     <select class="form-select mb-3" #date="ngModel" id="Date" [(ngModel)]="Booking_Details.Date" name="ss" required>
+<<<<<<< Updated upstream
                     <!-- <option selected disabled value="">select Date</option> -->
                     </select> 
                 <!-- <input type="text" class="form-control mb-4" id="txt-1" [(ngModel)]="Booking_Details.Date" name="Date"> -->
@@ -28,6 +29,20 @@
                 
                 <option [ngValue]="" hidden>Select Time</option>
                 <option value="{{j.TimeSlot}}" *ngFor='let j of Time' disabled="{{j.Class}}">{{j.TimeSlot}}</option> 
+=======
+                   
+                    </select> 
+              
+            <select class="form-select mb-3"  required name="Hallname" #halls="ngModel"  [(ngModel)]="Booking_Details.Hallname" required>
+                  
+                    <option *ngFor='let i of HallsAvailable' >{{i.HallName}}</option>
+                 </select>
+        
+            <select class="form-select mb-4" id='mylist' name="Time" *ngIf="halls.valid" [(ngModel)]="Booking_Details.Time" required>      
+                
+                <option [ngValue]="" hidden>Select Time</option>
+              
+>>>>>>> Stashed changes
 
                 <option value="10AM to 11AM">10AM to 11AM</option>
                 <option value="11AM to 12AM ">11AM to 12AM</option>
@@ -35,10 +50,13 @@
                 <option value="2PM to 3PM">2PM to 3PM</option>
                 <option value="3PM to 4PM">3PM to 4PM</option>
                 <option value="4PM to 5PM">4PM to 5PM</option>
+<<<<<<< Updated upstream
                 
                 <option value="2PM to 3PM">2PM to 3PM</option>
                 <option value="3PM to 4PM">3PM to 4PM</option>
                 <option value="4PM to 5PM">4PM to 5PM</option>
+=======
+>>>>>>> Stashed changes
             </select>
               <input type="submit" [disabled]="Bookingform.invalid" value="Book Hall"class="btn btn-primary">
               <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
