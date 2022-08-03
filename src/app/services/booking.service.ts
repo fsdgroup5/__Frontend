@@ -32,13 +32,7 @@ export class BookingService {
     return this.http.post("http://localhost:3000/newBooking",{"BookingDetails":Bookings})
     .subscribe(data=>{console.log(data)})
    }
-   getTime(Hall:any,Date:any){
-    // let params = new HttpParams()
-    // .set('Hall', Hall)
-    // .set('Date', Date);
-    // alert(params);
-    return this.http.get("http://localhost:3000/Time/"+Hall+"/"+Date);
-  }
+
 }
 
 

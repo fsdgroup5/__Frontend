@@ -4,16 +4,13 @@ import { BookingService } from '../services/booking.service';
 import { HallService } from '../services/hall.service';
 
 declare var display: any;
-declare const duplicate: any;
+
 @Component({
   selector: 'app-calender',
   templateUrl: './calender.component.html',
   styleUrls: ['./calender.component.css']
 })
 export class CalenderComponent implements OnInit {
-  onClick() {
-    duplicate();
-  }
   username =localStorage.getItem("username");
   HallsAvailable=[{
     HallName:'',
@@ -26,15 +23,7 @@ export class CalenderComponent implements OnInit {
     Class:'true',
     Username:this.username
   }
-  dt:any;
 
-  Time=[{
-    Date:'',
-    HallName:'',
-    TimeSlot:'',
-    Class:''
-  }]
-  
  calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     selectable: true,
@@ -61,14 +50,7 @@ export class CalenderComponent implements OnInit {
         end: endDate.setDate(endDate.getDate() + 15)
       };
     },
-    // visibleRange: function(currentDate){
-    //   var startDate = new Date(currentDate.valueOf());
-    //   var endDate = new Date(currentDate.valueOf());
-    //  return {
-    //   start: '2022-0-22',
-    //   end: '2020-03-25'
-    //  };
-    // },
+
    dateClick:  function(info:any) {
      let dateStr=info.dateStr
       display(dateStr);
@@ -87,7 +69,7 @@ export class CalenderComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    duplicate();
+
     this.hallService.getHall().subscribe((data)=>{
       this.HallsAvailable=JSON.parse(JSON.stringify(data));
   }) 
@@ -95,15 +77,9 @@ export class CalenderComponent implements OnInit {
   Bookhall(){ 
     this.bookservice.Bookhall(this.Booking_Details);
     console.log("Called");    
-    alert("Successfully booked"+this.Booking_Details.Date);
+
+    alert("Successfully booked");
   }
-  checktime(){
-    // this.hallService.checktime(this.Booking);
-    this.bookservice.getTime(this.Booking_Details.Hallname,this.Booking_Details.Date).subscribe((data)=>{
-      this.Time = JSON.parse(JSON.stringify(data));
-      console.log(this.Time);
-  })
-  }
-  
+
   // function( dateClickInfo ) { }
 }
