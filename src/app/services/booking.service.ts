@@ -32,7 +32,6 @@ export class BookingService {
     return this.http.post("http://localhost:3000/newBooking",{"BookingDetails":Bookings})
     .subscribe(data=>{console.log(data)})
    }
-<<<<<<< Updated upstream
    getTime(Hall:any,Date:any){
     // let params = new HttpParams()
     // .set('Hall', Hall)
@@ -40,8 +39,6 @@ export class BookingService {
     // alert(params);
     return this.http.get("http://localhost:3000/Time/"+Hall+"/"+Date);
   }
-=======
->>>>>>> Stashed changes
 }
 
 

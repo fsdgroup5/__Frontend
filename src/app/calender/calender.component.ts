@@ -4,22 +4,16 @@ import { BookingService } from '../services/booking.service';
 import { HallService } from '../services/hall.service';
 
 declare var display: any;
-<<<<<<< Updated upstream
 declare const duplicate: any;
-=======
->>>>>>> Stashed changes
 @Component({
   selector: 'app-calender',
   templateUrl: './calender.component.html',
   styleUrls: ['./calender.component.css']
 })
 export class CalenderComponent implements OnInit {
-<<<<<<< Updated upstream
   onClick() {
     duplicate();
   }
-=======
->>>>>>> Stashed changes
   username =localStorage.getItem("username");
   HallsAvailable=[{
     HallName:'',
@@ -32,7 +26,6 @@ export class CalenderComponent implements OnInit {
     Class:'true',
     Username:this.username
   }
-<<<<<<< Updated upstream
   dt:any;
 
   Time=[{
@@ -42,8 +35,6 @@ export class CalenderComponent implements OnInit {
     Class:''
   }]
   
-=======
->>>>>>> Stashed changes
  calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     selectable: true,
@@ -70,7 +61,6 @@ export class CalenderComponent implements OnInit {
         end: endDate.setDate(endDate.getDate() + 15)
       };
     },
-<<<<<<< Updated upstream
     // visibleRange: function(currentDate){
     //   var startDate = new Date(currentDate.valueOf());
     //   var endDate = new Date(currentDate.valueOf());
@@ -79,8 +69,6 @@ export class CalenderComponent implements OnInit {
     //   end: '2020-03-25'
     //  };
     // },
-=======
->>>>>>> Stashed changes
    dateClick:  function(info:any) {
      let dateStr=info.dateStr
       display(dateStr);
@@ -99,10 +87,7 @@ export class CalenderComponent implements OnInit {
   }
   
   ngOnInit(): void {
-<<<<<<< Updated upstream
     duplicate();
-=======
->>>>>>> Stashed changes
     this.hallService.getHall().subscribe((data)=>{
       this.HallsAvailable=JSON.parse(JSON.stringify(data));
   }) 
@@ -110,7 +95,6 @@ export class CalenderComponent implements OnInit {
   Bookhall(){ 
     this.bookservice.Bookhall(this.Booking_Details);
     console.log("Called");    
-<<<<<<< Updated upstream
     alert("Successfully booked"+this.Booking_Details.Date);
   }
   checktime(){
@@ -120,11 +104,6 @@ export class CalenderComponent implements OnInit {
       console.log(this.Time);
   })
   }
-=======
-    alert("Successfully booked");
-  }
-
->>>>>>> Stashed changes
   
   // function( dateClickInfo ) { }
 }
