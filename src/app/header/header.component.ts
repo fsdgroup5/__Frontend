@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 
 
 export class HeaderComponent implements OnInit {
-  username =localStorage.getItem("username");
 
   constructor(public _auth:AuthService,
     private _router:Router) { }
@@ -31,6 +30,7 @@ export class HeaderComponent implements OnInit {
 
   logoutUser(){
     localStorage.removeItem('token')
+    localStorage.removeItem('username');
     localStorage.removeItem('is_user')
     this._router.navigate([''])
   }

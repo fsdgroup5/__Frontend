@@ -3,3 +3,46 @@
     width: 100%;
     padding: 60px 0px;
 }
+.modal-title{
+    margin-bottom: 25px;
+}
+.modal-content{
+    background-color: rgb(41, 41, 41);
+    color: #fff;
+}
+.modal-body{
+    position: relative;
+    padding: 40px 20px;
+}
+.btn-close{
+    position: absolute;
+    right: 15px ;
+    top: 15px;
+    padding: 5px 10px;
+    background-color: rgb(211, 37, 37) !important;
+    color: #fff;
+    opacity: 1;
+    background: none;
+      background-color: rgba(0, 0, 0, 0);
+    height: auto;
+    width: auto;
+}
+.btn-box{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+.option_disabled{
+    color: brown;
+}
+.option_disabled small{
+    font-size: 12px !important;
+    color: rgb(0, 0, 0) !important;
+}
+#BookingForm select{
+    padding: 14px ;
+    font-size: 17px;
+}
+#BookingForm select:disabled{
+    background-color: #ccc;
+}

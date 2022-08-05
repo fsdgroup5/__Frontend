@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
   //server_address: string =  'api';
   //server_address: string =  "http://localhost:3000";
-
+user:any;
   constructor(private http:HttpClient) { }
   loginAdmin(user:any)
   {

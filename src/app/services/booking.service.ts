@@ -31,7 +31,7 @@ export class BookingService {
    Bookhall(Bookings:any){
     return this.http.post("http://localhost:3000/newBooking",{"BookingDetails":Bookings})
     .subscribe(data=>{console.log(data)})
-   }
+  }
 
 }
 
