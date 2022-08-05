@@ -19,7 +19,7 @@ export class AdminLoginComponent implements OnInit {
     .subscribe(
       res=>{
         localStorage.setItem('token',res.token)
-        this._router.navigate(['/Halls'])
+        this._router.navigate(['/adminDashboard'])
       }
     )
 

@@ -17,8 +17,11 @@ user:any;
   {
     return this.http.post<any>("http://localhost:3000/userLogin",user);
   }
-  loggedIn(){
-    return !!localStorage.getItem('token')
+  adminLoggedIn(){
+    return (!!localStorage.getItem('token') && !localStorage.getItem('is_user'))
+  }
+  userLoggedIn(){
+    return (!!localStorage.getItem('token') && !!localStorage.getItem('is_user'))
   }
   getToken()
   {

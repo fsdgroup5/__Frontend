@@ -10,6 +10,8 @@ import { AuthGuard } from './auth.guard';
 import { UserbookingComponent } from './userbooking/userbooking.component';
 import { CalendarContent } from '@fullcalendar/angular';
 import { CalenderComponent } from './calender/calender.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { UserGuard } from './user.guard';
 
 const routes: Routes = [
   {path:'AddHall',canActivate:[AuthGuard],component:NewhallComponent},
@@ -18,8 +20,9 @@ const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'adminLogin',component:AdminLoginComponent},
   {path:'userLogin',component:UserLoginComponent},
-  {path:'userbooking',component:UserbookingComponent},
-  {path:'calendar',component:CalenderComponent}
+  {path:'userbooking',canActivate:[UserGuard],component:UserbookingComponent},
+  {path:'calendar',canActivate:[UserGuard],component:CalenderComponent},
+  {path:'adminDashboard',canActivate:[AuthGuard],component:AdminDashboardComponent}
 ];
 
 @NgModule({
