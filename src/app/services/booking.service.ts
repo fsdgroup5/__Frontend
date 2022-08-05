@@ -6,6 +6,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BookingService {
 
+    //server_address: string =  'api';
+    server_address: string =  "http://localhost:3000/api";
+
   bookingdtls ={
     UserName :'',
     UserMailId:'',
@@ -18,18 +21,18 @@ export class BookingService {
    
    
     getDetails(username:any){
-      return this.http.get("http://localhost:3000/"+username);
+      return this.http.get(`${this.server_address}/`+username);
     }
 
     deleteDetails(id:any)
     {
-        return this.http.delete("http://localhost:3000/remove_booking/"+id)
+        return this.http.delete(`${this.server_address}/remove_booking/`+id)
      }
 
      getdate(dt:any){}
      
    Bookhall(Bookings:any){
-    return this.http.post("http://localhost:3000/newBooking",{"BookingDetails":Bookings})
+    return this.http.post(`${this.server_address}/newBooking`,{"BookingDetails":Bookings})
     .subscribe(data=>{console.log(data)})
   }
 

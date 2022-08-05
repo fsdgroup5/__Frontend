@@ -6,23 +6,23 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
   //server_address: string =  'api';
-  //server_address: string =  "http://localhost:3000";
+  server_address: string =  "http://localhost:3000/api";
 user:any;
   constructor(private http:HttpClient) { }
   loginAdmin(user:any)
   {
-    return this.http.post<any>("http://localhost:3000/adminLogin",user);
+    return this.http.post<any>(`${this.server_address}/adminLogin`,user);
   }
   loginUser(user:any)
   {
-    return this.http.post<any>("http://localhost:3000/userLogin",user);
+    return this.http.post<any>(`${this.server_address}/userLogin`,user);
   }
   adminLoggedIn(){
     return (!!localStorage.getItem('token') && !localStorage.getItem('is_user'))
   }
   userLoggedIn(){
     return (!!localStorage.getItem('token') && !!localStorage.getItem('is_user'))
-  }
+  } 
   getToken()
   {
     return localStorage.getItem('token')
