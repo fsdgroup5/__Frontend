@@ -26,13 +26,9 @@
                 <option *ngFor='let i of HallsAvailable'>{{i.HallName}}</option>
               </select>
               
-<<<<<<< Updated upstream
-=======
               <select class="form-select mb-4" id='{{Booking_Details.Hallname}}' name="Time"   [disabled]="halls.valid==false" [(ngModel)]="Booking_Details.Time" required> 
 
                 <option value="Select Time" selected disabled>Select Time</option>
-                <!-- <option class="option_disabled" value="{{j.TimeSlot}}" *ngFor='let j of Time' disabled>{{j.TimeSlot}} </option>  -->
->>>>>>> Stashed changes
                 <option value="10AM to 11AM">10AM to 11AM</option>
                 <option value="11AM to 12AM ">11AM to 12AM</option>
                 <option value="12PM to 1PM">12PM to 1PM</option>
