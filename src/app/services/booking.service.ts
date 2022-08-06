@@ -36,6 +36,11 @@ export class BookingService {
     .subscribe(data=>{console.log(data)})
   }
 
+  getAllDetails()
+  {
+      return this.http.get(`${this.server_address}/bookingdtls`)
+   }  
+
 }
 
 

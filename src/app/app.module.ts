@@ -22,6 +22,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { UserbookingComponent } from './userbooking/userbooking.component';
 import { CalenderComponent } from './calender/calender.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminBookingComponent } from './admin-booking/admin-booking.component';
+import { FilterPipe } from './filter.pipe';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -43,7 +45,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     HomeComponent,
     UserbookingComponent,
     CalenderComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    AdminBookingComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

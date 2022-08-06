@@ -48,18 +48,7 @@ dates:any;
     editable: true, 
     timeZone: 'Asia/Kolkata',
     aspectRatio: 2.3,
-    
-    // dateClick: this.handleDateClick.bind(this), // bind is important!
-    // events: [
-    //   { title: 'event 1', date: '2019-04-01' },
-    //   { title: 'event 2', date: '2019-04-02' }
-    // events: [
-    //   { // this object will be "parsed" into an Event Object
-    //     title: 'The Title', // a property!
-    //     start: '2018-09-01', // a property!
-    //     end: '2018-09-02' // a property! ** see important note below about 'end' **
-    //   }
-    //    ], 
+     
     validRange: function(currentDate) {
       var startDate = new Date(currentDate.valueOf());
        var endDate = new Date(currentDate.valueOf());
@@ -69,17 +58,7 @@ dates:any;
       };
     },
     dateClick: this.handleDateClick.bind(this),
-  //  dateClick:  function(info:any) {
-  //    let dateStr=info.dateStr
-  //     display(dateStr);
-  //     // alert('Clicked on: ' + info.title);
-  //     // alert('Clicked on: ' + dateStr);
-  //     // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-  //     // alert('Current view: ' + info.view.type);
-  //     // change the day's background color just for fun
-  //     // info.dayEl.style.backgroundColor = 'red';
-  //   }
-    
+     
   };
   constructor(private hallService:HallService,private bookservice:BookingService,private router:Router ) { 
    
