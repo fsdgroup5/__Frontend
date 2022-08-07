@@ -17,10 +17,7 @@
           <a class="nav-link text-white" style="font-size: large;" routerLink="/adminLogin" routerLinkActive="active" *ngIf="!_auth.adminLoggedIn() && !_auth.userLoggedIn()">Admin-Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" style="font-size: large;" routerLink="/Halls" routerLinkActive="active" *ngIf="_auth.adminLoggedIn() && !(is_user())">Halls</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" style="font-size: large;" routerLink="/AddHall" routerLinkActive="active" *ngIf="_auth.adminLoggedIn() && !(is_user())">Add Hall</a>
+          <a class="nav-link text-white"  style="font-size: large" routerLink ="/adminDashboard" routerLinkActive="active" *ngIf="_auth.adminLoggedIn() && !(is_user())" >Admin Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" style="font-size: large;"  routerLink ="/userbooking" *ngIf ="is_user()" > User Home</a>
