@@ -24,6 +24,11 @@ import { CalenderComponent } from './calender/calender.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminBookingComponent } from './admin-booking/admin-booking.component';
 import { FilterPipe } from './filter.pipe';
+import { EmployeeCreateComponent } from './components/employee-create/employee-create.component';
+import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ApiService } from './service/api.service';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -47,7 +52,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     CalenderComponent,
     AdminDashboardComponent,
     AdminBookingComponent,
-    FilterPipe
+    FilterPipe,
+    EmployeeCreateComponent,
+    EmployeeEditComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
@@ -55,9 +63,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FormsModule,
     HttpClientModule,
     FullCalendarModule,
-  
+    ReactiveFormsModule  
   ],
-  providers: [AuthService,  {
+  providers: [ApiService,AuthService,  {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
