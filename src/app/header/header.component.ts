@@ -38,6 +38,7 @@ export class HeaderComponent implements OnInit {
   logoutAdmin()
   {
     localStorage.removeItem('token')
+    localStorage.removeItem('isAdmin')
     this._router.navigate([''])
   }
 }

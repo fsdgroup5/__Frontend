@@ -18,7 +18,7 @@ user:any;
     return this.http.post<any>(`${this.server_address}/userLogin`,user);
   }
   adminLoggedIn(){
-    return (!!localStorage.getItem('token') && !localStorage.getItem('is_user'))
+    return (!!localStorage.getItem('token') && !localStorage.getItem('is_user') && localStorage.getItem('isAdmin'))
   }
   userLoggedIn(){
     return (!!localStorage.getItem('token') && !!localStorage.getItem('is_user'))
@@ -26,5 +26,9 @@ user:any;
   getToken()
   {
     return localStorage.getItem('token')
+  }
+  getisAdmin()
+  {
+    return localStorage.getItem('isAdmin')
   }
 }

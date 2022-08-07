@@ -19,6 +19,7 @@ export class AdminLoginComponent implements OnInit {
     .subscribe(
       res=>{
         localStorage.setItem('token',res.token)
+        localStorage.setItem('isAdmin',res.isAdmin)
         this._router.navigate(['/adminDashboard'])
       }
     )
