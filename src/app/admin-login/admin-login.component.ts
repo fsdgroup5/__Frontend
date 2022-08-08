@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
+  error_msg:any;
 
   User={username:'',
   password:''};
@@ -21,6 +22,10 @@ export class AdminLoginComponent implements OnInit {
         localStorage.setItem('token',res.token)
         localStorage.setItem('isAdmin',res.isAdmin)
         this._router.navigate(['/adminDashboard'])
+      }
+      ,err=>{
+        this.error_msg=true
+        setTimeout(()=>{this.error_msg=false},4000)
       }
     )
 

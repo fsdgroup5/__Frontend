@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class UserLoginComponent implements OnInit {
   User={username:'',
   password:''};
+  error_msg:any;
 
   constructor(private _auth: AuthService, private _router:Router) { }
     loginUser()
@@ -21,6 +22,10 @@ export class UserLoginComponent implements OnInit {
         localStorage.setItem("username", this.User.username.toString());
         localStorage.setItem('is_user','true');
         this._router.navigate(['/userbooking']);
+      }
+      ,err=>{
+        this.error_msg=true
+        setTimeout(()=>{this.error_msg=false},4000)
       }
     )
 

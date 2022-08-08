@@ -1,4 +1,117 @@
-#nav{
+#nav {
     background-color: #6474E5;
     padding: 15px 0px;
+}
+
+#nav .nav-item .nav-link {
+    margin-left: 5px;
+    padding: 6px 12px;
+}
+
+.nav-link.active {
+    background-color: #ffffff2b;
+    border-radius: 10px;
+}
+
+.user-img {
+    width: 20px;
+}
+
+.user_name {
+    padding: 0px 6px 0px 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid rgb(217, 217, 217); */
+    /* background-color: #ffffff4f; */
+    background-color: #0c0b0b41;
+}
+
+.user_name>a {
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.user_name .dropdown-toggle::after {
+    vertical-align: 0.3rem;
+}
+
+.user_name .dropdown-item {
+    display: flex;
+    align-items: center;
+}
+
+.user_name .dropdown-toggle {
+    padding: 6px 8px !important;
+}
+
+.user_name .dropdown-menu {
+    right: 0;
+    left: auto;
+    min-width: 100%;
+}
+
+.username_mobile,
+.dropdown-divider {
+    display: none !important;
+}
+
+@media(max-width:576px) {
+    .user_span {
+        display: none;
+    }
+
+    #nav .navbar-toggler {
+        order: 4;
+    }
+
+    .username_mobile {
+        text-transform: capitalize;
+        pointer-events: none;
+    }
+    .title_h4 {
+        max-width: 100px !important;
+        word-wrap: normal;
+        margin-right: auto;
+        font-size: 14px;
+    }
+    #nav .navbar-toggler{
+        padding: 5px;
+    }
+    .username_mobile,
+    .dropdown-divider {
+        display: block !important;
+    }
+}
+
+@media(max-width:992px ) {
+    .title_h4 {
+        max-width: 150px;
+        word-wrap: normal;
+        margin-right: auto;
+        font-size: 16px;
+        padding: 0px 0px 0px 15px !important;
+    }
+
+    #nav .navbar-toggler {
+        order: 4;
+    }
+#navbarSupportedContent{
+    order: 5;
+}
+    #nav .navbar-nav {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    #nav .user_name {
+        order: 3;
+        justify-content: center;
+        margin-left: auto !important;
+        margin-right: 20px;
+    }
+
+    #nav .dropdown-menu {
+        position: absolute;
+    }
 }

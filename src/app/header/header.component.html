@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark navbar-expand-lg"id="nav">
   <div class="container">
       <img src="/assets/images/logo.jpg" alt="ict" width="60" height="50">
-      <h4 style="color: #F8C8C6;padding-right: 25px;padding-left: 15px;">{{title}}</h4>
+      <h4 style="color: #F8C8C6;padding-right: 25px;padding-left: 15px;" class="title_h4">{{title}}</h4>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,19 +20,29 @@
           <a class="nav-link text-white"  style="font-size: large" routerLink ="/adminDashboard" routerLinkActive="active" *ngIf="_auth.adminLoggedIn() && !(is_user())" >Admin Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" style="font-size: large;"  routerLink ="/userbooking" *ngIf ="is_user()" > User Home</a>
+          <a class="nav-link text-white" style="font-size: large;"  routerLink ="/userbooking" routerLinkActive="active" *ngIf ="is_user()" > User Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" style="font-size: large;" routerLink ="/calendar" *ngIf ="is_user()"> Book Hall</a> 
+          <a class="nav-link text-white" style="font-size: large;" routerLink ="/calendar" routerLinkActive="active" *ngIf ="is_user()"> Book Hall</a> 
          </li>
-         <li class="nav-item">
-          <a class="nav-link text-white"  style="font-size: large; cursor:pointer" routerLinkActive="active" *ngIf="is_user()" (click)="logoutUser()" >Logout</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link text-white"  style="font-size: large; cursor:pointer" routerLinkActive="active" *ngIf="_auth.adminLoggedIn() && !(is_user())" (click)="logoutAdmin()" >Logout</a>
+          <li class="nav-item" *ngIf="_auth.adminLoggedIn() && !(is_user())" >
+          <a class="nav-link text-white"  style="font-size: large; cursor:pointer" routerLinkActive="active" (click)="logoutAdmin()" >Logout</a>
         </li>
       </ul>
     </div>
+    
+    <li class="nav-item dropdown user_name ms-3"  *ngIf="is_user()" >
+      <img src="../../assets/images/user.png" class="user-img">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"aria-expanded="false">
+      <span class="user_span">{{_auth.username}}</span>
+      </a>
+      <ul class="dropdown-menu" routerLinkActive="active" *ngIf="is_user()"  aria-labelledby="navbarDropdown" >
+       
+        <li><a class="dropdown-item username_mobile" href="#"><b>{{_auth.username}}</b></a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" (click)="logoutUser()" href="#">Logout <i class='fas fa-power-off text-danger ms-auto px-2' style='font-size:14px'></i></a></li>
+      </ul>
+    </li>
   </div>
 </nav>
 

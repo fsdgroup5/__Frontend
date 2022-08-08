@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 
 
 export class HeaderComponent implements OnInit {
-
   constructor(public _auth:AuthService,
     private _router:Router) { }
   title: String="ICTAK Hall Booking Portal"

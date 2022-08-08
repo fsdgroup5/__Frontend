@@ -23,7 +23,7 @@
             <tbody>  
                 <tr *ngFor='let bookingdtls of bookingdtls'>
                     <td>{{ bookingdtls.HallName }}</td>
-                    <td>{{ bookingdtls.DateOfBooking }}</td>
+                    <td>{{ bookingdtls.DateOfBooking |date:'MMMM dd, yyyy - EEEE' }}</td>
                     <td>{{ bookingdtls.TimeSlot }}</td>
                     <td>
                    <!-- <button type="button" class="btn btn-warning">{{ bookingdtls.Status }}</button>  -->

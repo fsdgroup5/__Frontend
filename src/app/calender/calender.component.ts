@@ -14,8 +14,9 @@ declare const setTime: any;
 })
 export class CalenderComponent implements OnInit {
   username =localStorage.getItem("username");
-dates:any;
-
+  dates:any;
+  error:any;
+  
   HallsAvailable=[{
     HallName:'',
     Image:'',
@@ -48,7 +49,6 @@ dates:any;
     editable: true, 
     timeZone: 'Asia/Kolkata',
     aspectRatio: 2.3,
-     
     validRange: function(currentDate) {
       var startDate = new Date(currentDate.valueOf());
        var endDate = new Date(currentDate.valueOf());
@@ -76,5 +76,18 @@ dates:any;
     this.router.navigate(['userbooking']);
   }
   
+  checktime(){
+    this.bookservice.getTime(this.Booking_Details.Hallname,this.Booking_Details.Date,this.Booking_Details.Time).subscribe((data)=>{
+      this.Time = JSON.parse(JSON.stringify(data));
+  },
+  err=>{
+    if(err.status==201){
+      this.error=false;
+    }
+    else if(err.status==200){
+         this.error=true;
+    }
+  })
+  }
   // function( dateClickInfo ) { }
 }

@@ -11,7 +11,6 @@ import { FilterPipe } from '../filter.pipe';
 export class AdminBookingComponent implements OnInit {
   Today =new Date();
   pageTitle: string = 'All Booking Details';
-
   searchText:string ='';
 
   bookingdtls=[{

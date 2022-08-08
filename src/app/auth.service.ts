@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
   //server_address: string =  'api';
   server_address: string =  "http://localhost:3000/api";
+  username:any;
 user:any;
   constructor(private http:HttpClient) { }
   loginAdmin(user:any)
@@ -21,6 +22,7 @@ user:any;
     return (!!localStorage.getItem('token') && !localStorage.getItem('is_user') && localStorage.getItem('isAdmin'))
   }
   userLoggedIn(){
+    this.username=localStorage.getItem('username')
     return (!!localStorage.getItem('token') && !!localStorage.getItem('is_user'))
   } 
   getToken()

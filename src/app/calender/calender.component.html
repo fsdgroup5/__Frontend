@@ -2,7 +2,7 @@
 <div class="calendar">
   <section class="container">
     <h2 class="text-center text-dark">Book Hall</h2>
-    <full-calendar [options]="calendarOptions"></full-calendar>
+    <full-calendar [options]="calendarOptions" id="calendar"></full-calendar>
     <!-- Modal -->
     <div class="modal fade " id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
       data-bs-backdrop="static" data-bs-keyboard="false">
@@ -26,19 +26,20 @@
                 <option *ngFor='let i of HallsAvailable'>{{i.HallName}}</option>
               </select>
               
-              <select class="form-select mb-4" id='{{Booking_Details.Hallname}}' name="Time"   [disabled]="halls.valid==false" [(ngModel)]="Booking_Details.Time" required> 
+              <select class="form-select mb-4" (change)="checktime()" id='time' name="Time" [disabled]="halls.valid==false" [(ngModel)]="Booking_Details.Time" required> 
 
                 <option value="Select Time" selected disabled>Select Time</option>
                 <option value="10AM to 11AM">10AM to 11AM</option>
-                <option value="11AM to 12AM ">11AM to 12AM</option>
+                <option value="11AM to 12AM">11AM to 12AM</option>
                 <option value="12PM to 1PM">12PM to 1PM</option>
                 <option value="2PM to 3PM">2PM to 3PM</option>
                 <option value="3PM to 4PM">3PM to 4PM</option>
                 <option value="4PM to 5PM">4PM to 5PM</option>
               </select>
+              <small class="mt-1 error-msg"  *ngIf="error">Timeslot not Available</small>
               <div class="btn-box">
                 <button type="reset" style="text-transform: uppercase;" class="btn btn-danger  me-3 " data-bs-dismiss="modal">Cancel</button>
-                <input type="submit" style="text-transform: uppercase;" data-bs-dismiss="modal" [disabled]="Bookingform.invalid" value="Book Hall" class="btn btn-success">
+                <input type="submit" style="text-transform: uppercase;" data-bs-dismiss="modal" [disabled]="Bookingform.invalid || error" value="Book Hall" class="btn btn-success">
               </div>
             </form>
           </div>

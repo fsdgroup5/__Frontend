@@ -22,6 +22,7 @@
                           <label for="password">password</label>
                           <input type="password"  placeholder="Enter your password" class="form-control" [(ngModel)]="User.password" #password="ngModel"  name="password" required> 
                         </div>
+                        <small class="my-3 error-msg" *ngIf="error_msg">Invalid Username or Password</small>
                         <br>
                         <button class="btn" id="btn1" [disabled]="userlogin.form.invalid">LogIn  </button>
                       </form>

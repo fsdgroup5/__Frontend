@@ -17,6 +17,8 @@ export class AuthGuard implements CanActivate {
     }
     else{
         this._router.navigate(['adminLogin'])
+        // this._router.navigate([''])
+        // alert('You are not an Admin');
         return false
     }
   }

@@ -17,6 +17,8 @@ export class UserGuard implements CanActivate {
     }
     else{
         this._router.navigate(['userLogin'])
+        // this._router.navigate([''])
+        // alert('You are not an user');
         return false
     }
   }
