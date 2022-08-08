@@ -5,7 +5,6 @@ import { BookingService } from '../services/booking.service';
 import { HallService } from '../services/hall.service';
 
 declare var display: any;
-declare const duplicate: any;
 declare const setTime: any;
 @Component({
   selector: 'app-calender',
@@ -17,6 +16,10 @@ export class CalenderComponent implements OnInit {
   dates:any;
   error:any;
   
+  setTIme(){
+    setTime()
+  }
+
   HallsAvailable=[{
     HallName:'',
     Image:'',

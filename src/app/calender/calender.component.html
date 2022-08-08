@@ -20,7 +20,7 @@
       
               </select>
 
-              <select class="form-select mb-3"  [disabled]="date.valid==false"  required name="Hallname" #halls="ngModel"
+              <select class="form-select mb-3" (click)="setTime()"  [disabled]="date.valid==false"  required name="Hallname" #halls="ngModel"
                 [(ngModel)]="Booking_Details.Hallname" required>
                 <option selected disabled  [ngValue]=''>select Hall</option>
                 <option *ngFor='let i of HallsAvailable'>{{i.HallName}}</option>
