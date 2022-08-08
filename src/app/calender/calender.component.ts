@@ -16,7 +16,7 @@ export class CalenderComponent implements OnInit {
   dates:any;
   error:any;
   
-  setTIme(){
+  setTime(){
     setTime()
   }
 
