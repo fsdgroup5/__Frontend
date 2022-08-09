@@ -5,6 +5,3 @@ function display(dateStr){
         document.getElementById("Date").innerHTML = "  <option selected disabled [ngValue]=''>select Date</option><br><option id='Date' name='Date' ng-reflect-model='"+dateStr+"'>"+dateStr+"</option>";
         
 }
-function setTime(){
-        $('#time').prop('selectedIndex',0);
-}

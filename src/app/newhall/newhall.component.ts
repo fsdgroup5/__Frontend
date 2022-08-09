@@ -23,19 +23,8 @@ export class NewhallComponent implements OnInit {
   }
   Addhall(){ 
     this.hallService.Newhall(this.NewHall);
-    console.log("Called");    
     alert("Success");
-    this.router.navigate(['Halls']);
+    this.router.navigate(['/Halls']);
   }
   
-
-
-
-  selectImage(event:any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.images = file;
-    }
-  }
-
 }

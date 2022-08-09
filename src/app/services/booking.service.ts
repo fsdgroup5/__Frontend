@@ -41,8 +41,8 @@ export class BookingService {
       return this.http.get(`${this.server_address}/bookingdtls`)
    }  
 
-   getTime(Hall:any,Date:any,Timeslot:any){
-    return this.http.get("http://localhost:3000/Time/"+Hall+"/"+Date+"/"+Timeslot);
+   getTime(Hall:any,Date:any,Timeslot:any,Username:any){
+    return this.http.get("http://localhost:3000/Time/"+Hall+"/"+Date+"/"+Timeslot+"/"+Username);
   }
 }
 

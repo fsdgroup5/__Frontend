@@ -2,6 +2,11 @@
     background-color: rgb(226, 226, 236);
     width: 100%;
     padding: 60px 0px;
+    background-size: cover !important;
+}
+.heading{
+    font-weight: 700;
+    text-shadow: 5px 5px #ffffff;
 }
 .modal-title{
     margin-bottom: 25px;
@@ -45,4 +50,11 @@
 }
 #BookingForm select:disabled{
     background-color: #ccc;
+}
+.hide_div{
+    display: none;
+    background-color: black;
+}
+.error-msg{
+    display: inline-flex !important;
 }

@@ -44,7 +44,9 @@ align-self: baseline;
     color: rgb(255, 255, 255);
     text-decoration: none;
 }
-
+.fc-theme-standard td{
+  border: 0px !important;
+}
 .fc-col-header-cell {
     background-color: rgb(36, 36, 36);
     padding: 25px !important;
@@ -52,7 +54,7 @@ align-self: baseline;
 }
 .fc .fc-scrollgrid {
     border: 1px solid black !important;
-    border-radius: 20px;
+    border-radius:10px;
     overflow: hidden;
   }
   .fc .fc-daygrid-day-top {
@@ -60,7 +62,7 @@ align-self: baseline;
     align-items: center;
   }
   .fc .fc-daygrid-day-top a{
-    font-size: 25px;
+    font-size: 20px;
     text-decoration: none;
     color: rgb(36, 36, 36);
   }
@@ -70,7 +72,7 @@ align-self: baseline;
   .fc-today-button{
     display: none !important;
   }
-.fc-button-group{
+/* .fc-button-group{
     position: absolute !important;
     left: 0;
     top: 50%;
@@ -79,7 +81,7 @@ align-self: baseline;
     margin-left: 0px !important;
     justify-content: space-between;
     padding: 0px 15px;
-}
+} */
 .fc-header-toolbar{
     position: relative;
     margin-bottom: 0px !important;
@@ -88,7 +90,7 @@ align-self: baseline;
     color: #fff;
 }
 .fc-button-primary{
-    max-width: 50px !important;
+    /* max-width: 50px !important; */
     background-color: #fff !important;
     border-radius: 10px !important;
     color: rgb(61, 61, 61) !important;
@@ -100,7 +102,7 @@ align-self: baseline;
     margin: 46px auto;
     background-color:  rgb(36, 36, 36);
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 10px;
     max-width: 700px;
 min-height: 700px !important;
 
@@ -119,3 +121,7 @@ min-height: 400px !important;
     font-size: 16px;
   }
   }
+  /* .fc-liquid-hack td [data-date="2022-08-09"]{
+    background-color: red;
+    pointer-events: none !important;
+  } */
