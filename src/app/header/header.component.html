@@ -1,39 +1,44 @@
-<nav class="navbar navbar-dark navbar-expand-lg"id="nav">
+<nav class="navbar navbar-dark navbar-expand-lg" id="nav">
   <div class="container">
+    
+    <a class="navbar-brand" routerLink="/">
       <img src="/assets/images/logo.jpg" alt="ict" width="60" height="50">
-      <h4 style="color: #F8C8C6;padding-right: 25px;padding-left: 15px;" class="title_h4">{{title}}</h4>
+      <h4 style="color: #F8C8C6;padding-right: 15px;padding-left: 15px;" class="title_h4">{{title}}</h4>
+    </a>
+
+     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
         <li class="nav-item">
-          <a class="nav-link text-white"  style="font-size: large;" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="!_auth.adminLoggedIn() && !_auth.userLoggedIn()">Home</a>
+          <a class="nav-link text-white"  routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="!_auth.adminLoggedIn() && !_auth.userLoggedIn()">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" style="font-size: large;" routerLink="/userLogin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="!_auth.adminLoggedIn() && !_auth.userLoggedIn()" >User-Login</a>
+          <a class="nav-link text-white" routerLink="/userLogin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="!_auth.adminLoggedIn() && !_auth.userLoggedIn()" >User-Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" style="font-size: large;" routerLink="/adminLogin" routerLinkActive="active" *ngIf="!_auth.adminLoggedIn() && !_auth.userLoggedIn()">Admin-Login</a>
+          <a class="nav-link text-white" routerLink="/adminLogin" routerLinkActive="active" *ngIf="!_auth.adminLoggedIn() && !_auth.userLoggedIn()">Admin-Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white"  style="font-size: large" routerLink ="/adminDashboard" routerLinkActive="active" *ngIf="_auth.adminLoggedIn() && !(is_user())" >Admin Dashboard</a>
+          <a class="nav-link text-white" routerLink ="/adminDashboard" routerLinkActive="active" *ngIf="_auth.adminLoggedIn() && !(is_user())" >Admin Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" style="font-size: large;"  routerLink ="/userbooking" routerLinkActive="active" *ngIf ="is_user()" > User Home</a>
+          <a class="nav-link text-white"  routerLink ="/userbooking" routerLinkActive="active" *ngIf ="is_user()" > User Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" style="font-size: large;" routerLink ="/calendar" routerLinkActive="active" *ngIf ="is_user()"> Book Hall</a> 
+          <a class="nav-link text-white" routerLink ="/calendar" routerLinkActive="active" *ngIf ="is_user()"> Book Hall</a> 
          </li>
           <li class="nav-item" *ngIf="_auth.adminLoggedIn() && !(is_user())" >
-          <a class="nav-link text-white"  style="font-size: large; cursor:pointer" routerLinkActive="active" (click)="logoutAdmin()" >Logout</a>
+          <a class="nav-link text-white" href="#" routerLinkActive="active" (click)="logoutAdmin()" >Logout</a>
         </li>
       </ul>
     </div>
     
     <li class="nav-item dropdown user_name ms-3"  *ngIf="is_user()" >
       <img src="../../assets/images/user.png" class="user-img">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"aria-expanded="false">
+      <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"aria-expanded="false">
       <span class="user_span">{{_auth.username}}</span>
       </a>
       <ul class="dropdown-menu" routerLinkActive="active" *ngIf="is_user()"  aria-labelledby="navbarDropdown" >

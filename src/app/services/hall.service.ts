@@ -15,25 +15,25 @@ export class HallService {
   }
   constructor( private http:HttpClient ) { }
   getHalls(id:any){
-    return this.http.get(`${this.server_address}/update/`+id);
+    return this.http.get(`${this.server_address}/halls/update`+id);
   }
   getHall(){
-    return this.http.get(`${this.server_address}/Halls`)
+    return this.http.get(`${this.server_address}/halls/halldetails`)
   }
 
   Newhall(Halldetails:any){
-    return this.http.post(`${this.server_address}/insert`,{"Hall":Halldetails})
+    return this.http.post(`${this.server_address}/halls/addnewhall`,{"Hall":Halldetails})
     .subscribe(data=>{console.log(data)})
    }
    removeHall(id:any)
    {
-     return this.http.delete(`${this.server_address}/remove/`+id)
+     return this.http.delete(`${this.server_address}/halls/removehall`+id)
  
    }
    
    editHall(id:any){
       console.log('client update')
-      return this.http.put(`${this.server_address}/update`,id)
+      return this.http.put(`${this.server_address}/halls/update`,id)
       .subscribe(data =>{console.log(data)})
    }
 

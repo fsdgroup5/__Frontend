@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
 import { Router } from '@angular/router';
+import timeGridPlugin from '@fullcalendar/timegrid';
 import { BookingService } from '../services/booking.service';
 import { HallService } from '../services/hall.service';
 import * as $ from 'jquery';
+import { DayGridView } from '@fullcalendar/daygrid';
+import * as e from 'express';
 
 declare var display: any;
-declare const setTime: any;
-declare const dateBlock: any;
+declare const get: any;
+declare const setCalendar: any;
 @Component({
   selector: 'app-calender',
   templateUrl: './calender.component.html',
@@ -20,13 +23,13 @@ export class CalenderComponent implements OnInit {
   error1:any;
   times:any;
   error_msg='';
-  
   setTime(){
     $('#times').prop('selectedIndex',0);
     // $('#times').addClass('ng-invalid');
        this.error=false;
        this.error1=false;
   }
+  
   HallsAvailable=[{
     HallName:'',
     Image:'',
@@ -46,38 +49,92 @@ export class CalenderComponent implements OnInit {
     Username:this.username
   }
  
+  posts=[{
+  }]
+  
 
   handleDateClick(arg:any) {
-   display(arg.dateStr);
-  //  this.error1=false;
-   this.error=false;
-   this.error_msg=''
-  //  this.dates=arg.dateStr.toString();
-  //   alert('date click! ' +this.dates)
+  const then = new Date(arg.dateStr);
+const today = new Date();
+
+today.setDate(today.getDate() + 1);
+
+const msBetweenDates = Math.abs(then.getTime() - today.getTime());
+const daysBetweenDates = msBetweenDates / (24 * 60 * 60 * 1000);
+var date=arg.date
+today.setHours(0, 0, 0, 0);
+
+if (daysBetweenDates < 14 && date > today) {
+  display(arg.dateStr);
+  this.error=false;
+  this.error_msg=''
+} else {
+ alert('select a date between 15 days')
+}
+
   }
  calendarOptions: CalendarOptions = {
+  plugins: [ timeGridPlugin ],
     initialView: 'dayGridMonth',
     selectable: true,
-    editable: true, 
+    editable: false, 
     timeZone: 'Asia/Kolkata',
-    aspectRatio: 2.3,
-    validRange: function(currentDate) {
-      var startDate = new Date(currentDate.valueOf());
-       var endDate = new Date(currentDate.valueOf());
-      return {
-        start: currentDate,
-        end: endDate.setDate(endDate.getDate() + 15)
-      };
+    aspectRatio: 1.35,
+    
+    headerToolbar: {
+      left: 'prev,next',
+      center: 'title',
+      right: 'timeGridWeek,dayGridMonth'
     },
-    dateClick: this.handleDateClick.bind(this),
+    
+    views: {
      
+      dayGridMonth:{
+        dayMaxEventRows :2, 
+        dateClick: this.handleDateClick.bind(this),
+      },
+      
+      timeGridWeek: {
+        type: 'timeGrid',
+        slotMinTime:'09:00:00',
+        slotMaxTime:'18:00:00',
+        expandRows:true,
+      }
+    },
+    
+    eventTimeFormat:{
+      hour: 'numeric',
+      minute: '2-digit',
+      meridiem: 'short'
+    },
+    slotDuration: '01:00',
+    defaultRangeSeparator:'-',
+    eventSources: [
+      
+      // your event source
+      {
+        url: 'http://localhost:3000/api/booking/events/'+this.username, 
+      }
+  
+    ]
   };
   constructor(private hallService:HallService,private bookservice:BookingService,private router:Router ) { 
    
   }
   
   ngOnInit(): void {
+    $(document).ready(function() { 
+      $('.fc-button').click(function() { 
+        setCalendar();
+      })
+      setCalendar();
+    })
+   
 
+    this.bookservice.getEvents(this.username).subscribe((data)=>{
+      this.posts=JSON.parse(JSON.stringify(data));
+      console.log(this.posts)
+  }) 
     this.hallService.getHall().subscribe((data)=>{
       this.HallsAvailable=JSON.parse(JSON.stringify(data));
   }) 

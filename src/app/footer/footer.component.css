@@ -33,3 +33,17 @@
 .social-media-ul li:hover img{
     filter: invert(0);
 }
+@media(max-width:768px){
+    .footer-inner{
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-inner .social-media-ul{
+        padding-left: 0px;
+        margin-bottom: 20px !important;
+    }
+    .social-media-ul li:last-child{
+        margin-right: 0px;
+    }
+}

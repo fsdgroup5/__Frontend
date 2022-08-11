@@ -1,127 +1,289 @@
 /* You can add global styles to this file, and also import other style files */
-ul{
-    list-style: none;
-}
-.def-form{
-    background-color: rgba(20, 30, 73, 0.7);
-    z-index: 4;
-    position: relative;
-    border-radius: 20px;
-    max-width: 550px;
-    margin: auto;
-    padding: 35px 25px;
-    color: #fff;
-}
-.submitt-btn{
-    width: 100%;
-    max-width:180px;
-    left: 100%;
-    position: relative;
-    transform: translatex(-100%);
-}
-.error-msg{
-background-color: #a23843;
-color: #ffffff;
-padding: 4px 8px;
-display: inline-flex;
-align-self: baseline;
-}
-.inner-bg{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-size: cover;
-    z-index: 2;
-    filter: blur(0.3px) grayscale(0.6);
+@import url(https://fonts.bunny.net/css?family=epilogue:400,800);
+
+html,
+body {
+  font-family: 'Epilogue';
+  font-size: 15px;
 }
 
-.fc .fc-scrollgrid-section-body table{
-    background-color: #ffffff;
+ul {
+  list-style: none;
 }
-.fc-col-header-cell a{
-    color: rgb(255, 255, 255);
-    text-decoration: none;
+
+.def-form {
+  background-color: rgba(20, 30, 73, 0.7);
+  z-index: 4;
+  position: relative;
+  border-radius: 20px;
+  max-width: 550px;
+  margin: auto;
+  padding: 35px 25px;
+  color: #fff;
+}
+
+.submitt-btn {
+  width: 100%;
+  max-width: 180px;
+  left: 100%;
+  position: relative;
+  transform: translatex(-100%);
+}
+
+.error-msg {
+  background-color: #a23843;
+  color: #ffffff;
+  padding: 4px 8px;
+  display: inline-flex;
+  align-self: baseline;
+}
+
+.inner-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: cover;
+  z-index: 2;
+  filter: blur(0.3px) grayscale(0.6);
+}
+
+.fc .fc-scrollgrid-section-body table {
+  background-color: rgb(231, 231, 231);
+}
+
+.fc-col-header-cell a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.fc-col-header-cell {
+  background-color: rgb(36, 36, 36);
+  padding: 25px !important;
+}
+
+.fc .fc-scrollgrid {
+  border: 1px solid black !important;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fc-daygrid-event {
+  flex-wrap: wrap;
+}
+
+.fc .fc-daygrid-day-top a {
+  text-decoration: none;
+  color: rgb(36, 36, 36);
+}
+
+.fc-header-toolbar {
+  padding: 20px;
+  color: #fff;
+}
+
+.fc-timeGridWeek-button {
+  margin-right: 10px !important;
+}
+
+.fc-button-primary {
+  color: rgb(255, 255, 255) !important;
+}
+
+.fc-button-primary:focus {
+  box-shadow: none !important;
+}
+
+.fc-button-primary:disabled {
+  opacity: 0 !important;
+}
+
+.fc-direction-ltr {
+  margin: 46px auto;
+  background-color: rgb(36, 36, 36);
+  /* overflow: hidden; */
+  border-radius: 10px;
+  max-width: 800px;
+  min-height: 700px !important;
+
+}
+
+.fc .fc-cell-shaded,
+.fc .fc-day-disabled {
+  background: #E5E5E5;
+  background: #E5E5E5;
 }
 .fc-theme-standard td{
-  border: 0px !important;
+  border: 1px solid #cccccc !important;
 }
-.fc-col-header-cell {
-    background-color: rgb(36, 36, 36);
-    padding: 25px !important;
-    border: 1px solid rgb(255, 0, 0) !important;
+@media (max-width:576px) {
+  .fc .fc-toolbar.fc-header-toolbar {
+  flex-direction: column;
+  padding: 10px 0px;
 }
-.fc .fc-scrollgrid {
-    border: 1px solid black !important;
-    border-radius:10px;
-    overflow: hidden;
+.fc-col-header-cell a{
+  font-size: 10px !important;
+  font-weight: 500;
+}
+.fc-button span{
+  font-size: 14px !important;
+}
+.fc-toolbar-chunk:not(:last-child){
+  margin-bottom: 20px !important;
+}
+.fc-toolbar-title{
+  font-size: 18px !important;
+}
+.fc-daygrid-event .fc-event-time{
+  font-size: 8px !important;
+}
+.fc-event-title{
+  font-size: 8px !important;
+}
+.fc .fc-daygrid-day-top a {
+  font-size: 13px !important;
+}
+}
+
+
+@media (max-width:768px) {
+  .fc-col-header-cell {
+    padding: 20px 0px !important;
   }
-  .fc .fc-daygrid-day-top {
-    justify-content: center !important;
-    align-items: center;
+  .fc-direction-ltr {
+    max-width: 500px;
+
   }
-  .fc .fc-daygrid-day-top a{
-    font-size: 20px;
-    text-decoration: none;
-    color: rgb(36, 36, 36);
+  .fc-daygrid-event{
+    
+  justify-content: center !important;
+  text-align: center !important;
   }
-  .fc td{
-    vertical-align: middle !important;
-  }
-  .fc-today-button{
+  .fc-daygrid-event-dot{
     display: none !important;
   }
-/* .fc-button-group{
-    position: absolute !important;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    margin-left: 0px !important;
-    justify-content: space-between;
-    padding: 0px 15px;
-} */
-.fc-header-toolbar{
-    position: relative;
-    margin-bottom: 0px !important;
-    padding: 20px 0px;
-    justify-content: center !important;
-    color: #fff;
-}
-.fc-button-primary{
-    /* max-width: 50px !important; */
-    background-color: #fff !important;
-    border-radius: 10px !important;
-    color: rgb(61, 61, 61) !important;
-}
-.fc-button-primary:disabled{
-    opacity: 0 !important;
-}
-.fc-direction-ltr {
-    margin: 46px auto;
-    background-color:  rgb(36, 36, 36);
-    overflow: hidden;
-    border-radius: 10px;
-    max-width: 700px;
-min-height: 700px !important;
-
-  }
-  @media (max-width:768px) {
-    .fc-col-header-cell{
-        padding: 20px 0px !important;
-    }
-    
-.fc-direction-ltr {
-    max-width: 500px;
-min-height: 400px !important;
-
-  }
-  .fc .fc-daygrid-day-top a{
+  .fc .fc-daygrid-day-top a {
     font-size: 16px;
   }
+}
+
+.fc-daygrid-event {
+  background-color: #336178;
+  color: #fff;
+  margin-bottom: 3px !important;
+}
+
+.fc-daygrid-event:hover {
+  background-color: #336178d2 !important;
+  color: #fff !important;
+}
+
+.available_dates {
+  background-color: #ffffffb8 !important;
+  border: 1px solid #aeaeae !important;
+}
+
+/* custom table */
+
+.custom-table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  vertical-align: middle;
+}
+
+.custom-table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+.custom-table tr {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+@media(min-width:600px){
+  
+.custom-table td {
+  padding: 15px 0px;
+  text-align: center;
+}
+
+.custom-table th{
+  padding: 20px 0px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+}
+@media(min-width:600px) and (max-width:992px){
+  
+  .custom-table td {
+   font-size: 12px;
   }
-  /* .fc-liquid-hack td [data-date="2022-08-09"]{
-    background-color: red;
-    pointer-events: none !important;
-  } */
+  .custom-table td .btn{
+    font-size: 12px;
+   }
+   .custom-table th{
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .custom-table {
+    border: 0;
+  }
+  .custom-table td .btn{
+    font-size: 12px;
+   }
+  .custom-table caption {
+    font-size: 1.3em;
+  }
+  
+  .custom-table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  .custom-table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  .custom-table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  .custom-table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .custom-table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+.custom-table tbody tr:nth-child(odd){
+  background-color: rgb(247, 247, 247);
+}

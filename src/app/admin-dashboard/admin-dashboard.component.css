@@ -94,3 +94,9 @@ h3{
     color: rgba(255, 255, 255, 0.7);
 }
 
+.admin-panel .circle-tile-content>a{
+    text-decoration: none;
+}
+.admin-panel .circle-tile-content>a i{
+    margin-left: 10px;
+}

@@ -1,8 +1,17 @@
-<div class="calendar" style="background-image: url(../../assets/images/calendar-bg.jpg);">
-  <section class="container">
+<!-- <div class="calendar" style="background-image: url(../../assets/images/calendar-bg.jpg);" id="calendar"> -->
+<div class="calendar" id="calendar">
 
-    <h2 class="text-center text-dark heading">Book Hall</h2>
-    <full-calendar [options]="calendarOptions" id="calendar"></full-calendar>
+  <section class="container">
+    <div class="text-center">
+      
+    <h2 class="text-center text-dark heading mb-2">Book your hall at ICTAK</h2>
+    <h5></h5>
+    <ul>
+      <li>ICTAK associates can book conference room prior to their meeting on a particular day and time.</li>
+      <li>You Can book hall only for the next 15 days</li>
+    </ul>
+    </div>
+    <full-calendar [options]="calendarOptions"  id="calendar"></full-calendar>
     <!-- Modal -->
     <div class="modal fade " id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
       data-bs-backdrop="static" data-bs-keyboard="false">
@@ -31,12 +40,21 @@
                 [disabled]="halls.valid==false" [(ngModel)]="Booking_Details.Time" required>
 
                 <option value="Select Time" selected disabled>Select Time</option>
-                <option value="10AM to 11AM">10AM to 11AM</option>
+                <!-- <option value="10AM to 11AM">10AM to 11AM</option>
                 <option value="11AM to 12AM">11AM to 12AM</option>
                 <option value="12PM to 1PM">12PM to 1PM</option>
                 <option value="2PM to 3PM">2PM to 3PM</option>
                 <option value="3PM to 4PM">3PM to 4PM</option>
-                <option value="4PM to 5PM">4PM to 5PM</option>
+                <option value="4PM to 5PM">4PM to 5PM</option> -->
+
+
+                <option value="10:00:00 to 11:00:00">10AM to 11AM</option>
+                <option value="11:00:00 to 12:00:00">11AM to 12AM</option>
+                <option value="12:00:00 to 13:00:00">12PM to 1PM</option>
+                <option value="14:00:00 to 15:00:00">2PM to 3PM</option>
+                <option value="15:00:00 to 16:00:00">3PM to 4PM</option>
+                <option value="16:00:00 to 17:00:00">4PM to 5PM</option>
+
               </select>
               <small class="mt-1 error-msg" *ngIf="error">{{error_msg}}</small>
               <div class="btn-box">

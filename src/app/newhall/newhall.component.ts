@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HallService } from '../services/hall.service';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-newhall',
@@ -16,14 +15,14 @@ export class NewhallComponent implements OnInit {
     Location:'',
     Image:''
   }
-  constructor(private hallService:HallService,private router:Router, private http:HttpClient) { }
+  constructor(private hallService:HallService,private router:Router) { }
 
   ngOnInit(): void {
     
   }
   Addhall(){ 
     this.hallService.Newhall(this.NewHall);
-    alert("Success");
+    // alert("Success");
     this.router.navigate(['/Halls']);
   }
   

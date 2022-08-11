@@ -2,7 +2,14 @@
     background-color: #6474E5;
     padding: 15px 0px;
 }
-
+#nav .navbar-brand{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#nav .navbar-brand h4{
+    font-size: 20px;
+}
 #nav .nav-item .nav-link {
     margin-left: 5px;
     padding: 6px 12px;
@@ -60,7 +67,9 @@
     .user_span {
         display: none;
     }
-
+    #nav .navbar-brand img{
+        width: 50px;
+    }
     #nav .navbar-toggler {
         order: 4;
     }
@@ -72,8 +81,7 @@
     .title_h4 {
         max-width: 100px !important;
         word-wrap: normal;
-        margin-right: auto;
-        font-size: 14px;
+        font-size: 14px !important;
     }
     #nav .navbar-toggler{
         padding: 5px;
@@ -89,8 +97,10 @@
         max-width: 150px;
         word-wrap: normal;
         margin-right: auto;
-        font-size: 16px;
-        padding: 0px 0px 0px 15px !important;
+        white-space: break-spaces;
+        font-size: 18px ;
+        padding: 0px 0px 0px 10px !important;
+        font-weight: 700;
     }
 
     #nav .navbar-toggler {
@@ -108,7 +118,7 @@
         order: 3;
         justify-content: center;
         margin-left: auto !important;
-        margin-right: 20px;
+        margin-right: 15px;
     }
 
     #nav .dropdown-menu {
