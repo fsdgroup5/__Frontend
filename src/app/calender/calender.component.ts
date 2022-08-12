@@ -55,7 +55,9 @@ export class CalenderComponent implements OnInit {
 
   handleDateClick(arg:any) {
   const then = new Date(arg.dateStr);
+
 const today = new Date();
+
 
 today.setDate(today.getDate() + 1);
 

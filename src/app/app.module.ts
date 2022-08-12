@@ -24,6 +24,8 @@ import { CalenderComponent } from './calender/calender.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminBookingComponent } from './admin-booking/admin-booking.component';
 import { FilterPipe } from './filter.pipe';
+import { BookingHistoryComponent } from './booking-history/booking-history.component';
+import { UpcomingBookingsComponent } from './upcoming-bookings/upcoming-bookings.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -49,6 +51,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     AdminDashboardComponent,
     AdminBookingComponent,
     FilterPipe,
+    BookingHistoryComponent,
+    UpcomingBookingsComponent,
   ],
   imports: [
     BrowserModule,

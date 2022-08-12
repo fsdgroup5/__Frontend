@@ -40,6 +40,12 @@ export class BookingService {
   getAllDetails() {
     return this.http.get(`${this.server_address}/booking/bookingdtls`)
   }
+  getBookingHistory() {
+    return this.http.get(`${this.server_address}/booking/bookingHistory`)
+  }
+  getUpcomingBookings() {
+    return this.http.get(`${this.server_address}/booking/upcomingBookings`)
+  }
 
   getTime(Hall: any, Date: any, Timeslot: any, Username: any) {
     return this.http.get(`${this.server_address}/booking/timeslot/` + Hall + "/" + Date + "/" + Timeslot + "/" + Username);
