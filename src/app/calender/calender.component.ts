@@ -71,7 +71,7 @@ if (daysBetweenDates < 14 && date > today) {
 } else {
  alert('select a date between 15 days')
 }
-
+this.Booking_Details.Date=arg.dateStr.toString();
   }
  calendarOptions: CalendarOptions = {
   plugins: [ timeGridPlugin ],
