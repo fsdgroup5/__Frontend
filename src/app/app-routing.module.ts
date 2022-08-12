@@ -13,8 +13,6 @@ import { CalenderComponent } from './calender/calender.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UserGuard } from './user.guard';
 import { AdminBookingComponent } from './admin-booking/admin-booking.component';
-import { BookingHistoryComponent } from './booking-history/booking-history.component';
-import { UpcomingBookingsComponent } from './upcoming-bookings/upcoming-bookings.component';
 
 
 
@@ -28,9 +26,7 @@ const routes: Routes = [
   {path:'userbooking',canActivate:[UserGuard],component:UserbookingComponent},
   {path:'calendar',canActivate:[UserGuard],component:CalenderComponent},
   {path:'adminDashboard',canActivate:[AuthGuard],component:AdminDashboardComponent},
-  {path :'Adminbooking',canActivate:[AuthGuard],component:AdminBookingComponent},
-  {path :'bookingHistory',canActivate:[AuthGuard],component:BookingHistoryComponent},
-  {path :'upcomingBookings',canActivate:[AuthGuard],component:UpcomingBookingsComponent}
+  {path :'Adminbooking',canActivate:[AuthGuard],component:AdminBookingComponent}
 ];
 
 @NgModule({

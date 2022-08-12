@@ -7,6 +7,7 @@
             <div class="form-group">
                 <label>Hall name <span class="text-danger">*</span></label>
                 <input type="text" name="Hallname" id="Hallname" #hallname="ngModel"  [(ngModel)]="NewHall.HallName" [class.is-invalid]="hallname.invalid && hallname.touched" required>
+                <small class="mt-2 error-msg" *ngIf="hallService.hall_exist">Hall name already exist | Choose another name</small>
                 <small class="mt-2 error-msg" *ngIf="hallname.invalid && hallname.touched">Hall name Required</small>
             </div>
     

@@ -50,6 +50,10 @@ export class BookingService {
   getTime(Hall: any, Date: any, Timeslot: any, Username: any) {
     return this.http.get(`${this.server_address}/booking/timeslot/` + Hall + "/" + Date + "/" + Timeslot + "/" + Username);
   }
+
+  date_filter(startDate:any,EndDate:any){
+    return this.http.get(`${this.server_address}/booking/datefilter/`+startDate+"/"+EndDate);
+  }
 }
 
 

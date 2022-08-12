@@ -15,7 +15,7 @@ export class NewhallComponent implements OnInit {
     Location:'',
     Image:''
   }
-  constructor(private hallService:HallService,private router:Router) { }
+  constructor(public hallService:HallService,private router:Router) { }
 
   ngOnInit(): void {
     
@@ -23,7 +23,7 @@ export class NewhallComponent implements OnInit {
   Addhall(){ 
     this.hallService.Newhall(this.NewHall);
     // alert("Success");
-    this.router.navigate(['/Halls']);
+    // this.router.navigate(['/Halls']);
   }
   
 }
