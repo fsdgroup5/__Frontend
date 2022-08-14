@@ -24,6 +24,18 @@
         <li class="nav-item">
           <a class="nav-link text-white" routerLink ="/adminDashboard" routerLinkActive="active" *ngIf="_auth.adminLoggedIn() && !(is_user())" >Admin Dashboard</a>
         </li>
+<!--         
+        
+        <li class="nav-item dropdown ms-3"  *ngIf="_auth.adminLoggedIn() && !(is_user())">
+          <a class="nav-link dropdown-toggle text-white" routerLinkActive="active"  id="navbarDropdown_hall" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="user_span">Hall Management</span>
+          </a>
+          <ul class="dropdown-menu" routerLinkActive="active" aria-labelledby="navbarDropdown_hall" >
+            <li><a class="dropdown-item" href="#" routerLinkActive="active" routerLink="/AddHall">Add Hall</a></li>
+            <li><a class="dropdown-item" routerLink="/Halls" routerLinkActive="active">Hall details</a></li>
+          </ul>
+        </li> -->
+
         <li class="nav-item">
           <a class="nav-link text-white"  routerLink ="/userbooking" routerLinkActive="active" *ngIf ="is_user()" > User Home</a>
         </li>

@@ -34,7 +34,7 @@ export class BookingService {
 
   Bookhall(Bookings: any) {
     return this.http.post(`${this.server_address}/booking/newBooking`, { "BookingDetails": Bookings })
-      .subscribe(data => { console.log(data) })
+      .subscribe(data => { console.log(data) },res=>{})
   }
 
   getAllDetails() {

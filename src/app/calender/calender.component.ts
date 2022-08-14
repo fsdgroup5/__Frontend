@@ -9,7 +9,6 @@ import { DayGridView } from '@fullcalendar/daygrid';
 import * as e from 'express';
 
 declare var display: any;
-declare const get: any;
 declare const setCalendar: any;
 @Component({
   selector: 'app-calender',
@@ -59,14 +58,14 @@ export class CalenderComponent implements OnInit {
 const today = new Date();
 
 
-today.setDate(today.getDate() + 1);
+today.setDate(today.getDate());
 
 const msBetweenDates = Math.abs(then.getTime() - today.getTime());
 const daysBetweenDates = msBetweenDates / (24 * 60 * 60 * 1000);
 var date=arg.date
 today.setHours(0, 0, 0, 0);
 
-if (daysBetweenDates < 14 && date > today) {
+if (daysBetweenDates < 15 && date > today) {
   display(arg.dateStr);
   this.error=false;
   this.error_msg=''
@@ -86,9 +85,8 @@ this.Booking_Details.Date=arg.dateStr.toString();
     headerToolbar: {
       left: 'prev,next',
       center: 'title',
-      right: 'timeGridWeek,dayGridMonth'
+      right: 'timeGridWeek,dayGridMonth,timeGridDay'
     },
-    
     views: {
      
       dayGridMonth:{
@@ -97,6 +95,12 @@ this.Booking_Details.Date=arg.dateStr.toString();
       },
       
       timeGridWeek: {
+        type: 'timeGrid',
+        slotMinTime:'09:00:00',
+        slotMaxTime:'18:00:00',
+        expandRows:true,
+      },
+      timeGridDay: {
         type: 'timeGrid',
         slotMinTime:'09:00:00',
         slotMaxTime:'18:00:00',
@@ -148,28 +152,45 @@ this.Booking_Details.Date=arg.dateStr.toString();
   }
   
   checktime(){
-    this.bookservice.getTime(this.Booking_Details.Hallname,this.Booking_Details.Date,this.Booking_Details.Time,this.username).subscribe((data)=>{
-      this.Time = JSON.parse(JSON.stringify(data));
-  },
-  err=>{
-    if(err.status==200){
-      this.error=false;
-      // this.error1=false;
-    }
-    if(err.status==201){
-      // this.error1=true;
-      this.error=true;
-      this.error_msg='You already have another booking for the timeslot'
-    }
-    if(err.status==401){
-      this.error=true;
-      this.error_msg='TimeSlot not available'
-    }
-    if(err.status==202){
-      this.error=true;
-      this.error_msg='You already booked the slot'
-    }
-  })
+
+    
+var Time=this.Booking_Details.Time; 
+var date=new Date()
+var today = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString(); 
+var StartTime = Time.substring(0, 8);
+var givenDate2 =  this.Booking_Details.Date+'T' + StartTime + 'Z'
+if(today > givenDate2){
+  this.error=true;
+  this.error_msg='timeslot not available'
+}
+else{
+  this.bookservice.getTime(this.Booking_Details.Hallname,this.Booking_Details.Date,this.Booking_Details.Time,this.username).subscribe((data)=>{
+    this.Time = JSON.parse(JSON.stringify(data));
+},
+err=>{
+  if(err.status==200){
+    this.error=false;
+    // this.error1=false;
   }
+  if(err.status==404){
+    // this.error1=true;
+    this.error=true;
+    this.error_msg='You already have another booking for the timeslot'
+  }
+  if(err.status==401){
+    this.error=true;
+    this.error_msg='TimeSlot not available'
+  }
+  if(err.status==202){
+    this.error=true;
+    this.error_msg='You already booked the slot'
+  }
+})
+}
+}
+
+
+
+    
   // function( dateClickInfo ) { }
 }

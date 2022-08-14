@@ -21,19 +21,19 @@
 
               <div class="box_input">
                 <label for="Search" class="me-2"> Start Date</label>
-                <input type="date" #startDate="ngModel" [(ngModel)]="dates.startDate" (change)="dateFilter()">
+                <input type="date" #startDate="ngModel" [(ngModel)]="dates.startDate" id="datepicker-startDate" (change)="dateFilter()">
               </div>
               <div class="box_input">
                 <label for="Search" class=" mx-2"> End Date</label>
-                <input type="date" #endDate="ngModel" (change)="dateFilter()" [disabled]="startDate.value==false"
+                <input type="date" #endDate="ngModel" id="datepicker-endDate"  (change)="dateFilter()" [disabled]="startDate.value==false"
                   [(ngModel)]="dates.endDate">
               </div>
             </div>
           </div>
 
           <div class="col-xl-4 col-lg-8 col-md-6 history_btn ">
-            <a (click)="bookingHistory()"><button class="btn btn-secondary rounded me-3">Booking History</button></a>
-            <a (click)="upcomingBookings()"><button class="btn btn-warning rounded">Upcoming Bookings</button></a>
+            <a (click)="bookingHistory()" *ngIf="!booking_history"><button class="btn btn-secondary rounded me-3" >View Booking History</button></a>
+            <a (click)="upcomingBookings()" *ngIf="!upcoming"><button class="btn btn-warning rounded">View Upcoming Bookings</button></a>
           </div>
         </div>
       </div>
@@ -49,8 +49,8 @@
                 <th>Hall Name</th>
                 <th>Date</th>
                 <th>TimeSlot</th>
-                <th></th>
                 <!-- <th>Status</th> -->
+                <th></th>
               </tr>
 
             </thead>
@@ -62,8 +62,12 @@
                 <td data-label="Booking Date">{{ bookingdtls.DateOfBooking |date:'MMMM dd, yyyy - EEEE' }}</td>
                 <td data-label="TimeSlot">{{ bookingdtls.TimeSlot }}</td>
                 <td>
+                  <small *ngIf="bookingdtls.DateOfBooking<todayISO" class="m-2">completed</small>
+                  <button class="btn btn-secondary" style="cursor:pointer" *ngIf="bookingdtls.DateOfBooking<todayISO" (click)="deleteBooking(bookingdtls)">remove</button>
                   <!-- <button class="btn btn-warning" style="cursor:pointer"  (click)= "editBooking(bookingdtls)" style="margin-right:25px;"> Edit</button> -->
-                  <button class="btn btn-danger" style="cursor:pointer" (click)="deleteBooking(bookingdtls)">
+                 
+                  <!-- <small *ngIf="bookingdtls.DateOfBooking>=todayISO" class="m-2 p-2">upcoming</small> -->
+                  <button class="btn btn-danger" style="cursor:pointer" *ngIf="bookingdtls.DateOfBooking>=todayISO" (click)="deleteBooking(bookingdtls)">
                     Cancel</button>
                 </td>
               </tr>
