@@ -1,0 +1,81 @@
+<div class="new-employee-section" >
+    <div class="inner-bg" style="background-image: url('../../assets/images/room.jpg');">
+    <div class="row justify-content-center">
+      <div class="col-md-4 register-employee">
+        <!-- form card register -->
+        <div class="card-body">
+          <h2 class="text-center mb-5">Add New Employee</h2>  
+          <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input class="form-control" type="text" formControlName="name" />
+              <!-- error -->
+              <div class="errors" style="margin-top:5px;">
+                <span *ngIf="employeeForm.get('name').hasError('required')" style="color: red; font-weight: 600;">Name is Required</span> 
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input class="form-control" type="text" formControlName="email" />
+              <!-- error -->
+              <div class="errors" style="margin-top:5px;">
+                <span *ngIf="employeeForm.get('email').hasError('required')" style="color: red; font-weight: 600;">Email is Required</span> 
+                <span *ngIf="employeeForm.get('email').hasError('pattern')" style="color: red;font-weight: 600;">Follow the Pattern</span> 
+              </div>
+              <!-- <div
+                class="invalid-feedback"
+                *ngIf="submitted && myForm['email'].errors?.['required']">
+                Enter your email.
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && myForm['email'].errors?.['pattern']">
+                Enter valid email.
+              </div> -->
+            </div>
+            
+            <div class="form-group">
+              <label for="username">username</label>
+              <input class="form-control" type="text" formControlName="username" />
+              <!-- error -->
+              <div class="errors" style="margin-top:5px;">
+                <span *ngIf="employeeForm.get('username').hasError('required')" style="color: red; font-weight: 600;">username is Required</span> 
+                <span *ngIf="employeeForm.get('username').hasError('minlength')" style="color: red; font-weight: 600;">Minimum length is 6</span> 
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="Department">Department</label>
+              <input class="form-control" type="text" formControlName="Department" />
+              <!-- error -->
+              <div class="errors" style="margin-top:5px;">
+                <span *ngIf="employeeForm.get('Department').hasError('required')" style="color: red; font-weight: 600;">Department is Required</span> 
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="password"
+              />
+              <!-- error -->
+              <div class="errors" style="margin-top:5px;">
+                <span *ngIf="employeeForm.get('password').hasError('required')" style="color: red; font-weight: 600;">Password is Required</span> 
+                <span *ngIf="employeeForm.get('password').hasError('pattern')" style="color: red;font-weight: 600;">Follow the Pattern</span> 
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <button class="btn btn-success btn-lg btn-block" type="submit">
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- form card register -->
+    </div>
+  </div>

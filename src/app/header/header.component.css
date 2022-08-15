@@ -62,7 +62,11 @@
 .dropdown-divider {
     display: none !important;
 }
-
+.dropdown-admin.active{
+    
+    background-color: #ffffff2b;
+    border-radius: 10px;
+}
 @media(max-width:576px) {
     .user_span {
         display: none;

@@ -87,11 +87,17 @@ align-items: center;
     }
     .filter-box input[type="date"]{
         width: auto !important;
+        font-size: 11px;
+        padding: 10px 8px;
     }  
     .box_input:nth-child(2) input[type="date"]{
         margin-left: 15px;
-        font-size: 14px;
+        font-size: 11px;
+        padding: 10px 8px;
     }  
+    .dropdown-admin.show{
+        
+    }
      .search-by-date {
         margin-top: 15px;
         display: flex;

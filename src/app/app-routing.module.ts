@@ -13,6 +13,9 @@ import { CalenderComponent } from './calender/calender.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UserGuard } from './user.guard';
 import { AdminBookingComponent } from './admin-booking/admin-booking.component';
+import { EmployeeAddComponent } from './Employee/employee-add/employee-add.component';
+import { EmployeeEditComponent } from './Employee/employee-edit/employee-edit.component';
+import { EmployeeShowComponent } from './Employee/employee-show/employee-show.component';
 
 
 
@@ -26,7 +29,10 @@ const routes: Routes = [
   {path:'userbooking',canActivate:[UserGuard],component:UserbookingComponent},
   {path:'calendar',canActivate:[UserGuard],component:CalenderComponent},
   {path:'adminDashboard',canActivate:[AuthGuard],component:AdminDashboardComponent},
-  {path :'Adminbooking',canActivate:[AuthGuard],component:AdminBookingComponent}
+  {path :'Adminbooking',canActivate:[AuthGuard],component:AdminBookingComponent},
+  {path:'employeeAdd',component:EmployeeAddComponent},
+  {path:'employeeShow',component:EmployeeShowComponent},
+  {path:'employeeEdit/:id',component:EmployeeEditComponent}
 ];
 
 @NgModule({

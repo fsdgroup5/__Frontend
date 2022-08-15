@@ -1,0 +1,29 @@
+.new-employee-section{
+    padding: 60px 0px;
+    position: relative;
+    min-height: 100vh;
+}
+.register-employee{
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+.new-employee-form .form-group{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.new-employee-form label{
+    margin-bottom: 20px ;
+    font-weight: 600 !important;
+}
+.new-employee-form input{
+    padding: 15px ;
+    border-radius: 10px;
+    border: 1px solid rgb(36, 118, 169);
+}
+.new-employee-form input.ng-dirty.ng-invalid {
+    color: red
+  }

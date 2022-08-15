@@ -8,7 +8,7 @@ import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewhallComponent } from './newhall/newhall.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { HallComponent } from './hall/hall.component';
 import { HeaderComponent } from './header/header.component';
@@ -24,6 +24,9 @@ import { CalenderComponent } from './calender/calender.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminBookingComponent } from './admin-booking/admin-booking.component';
 import { FilterPipe } from './filter.pipe';
+import { EmployeeAddComponent } from './Employee/employee-add/employee-add.component';
+import { EmployeeShowComponent } from './Employee/employee-show/employee-show.component';
+import { EmployeeEditComponent } from './Employee/employee-edit/employee-edit.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -49,8 +52,12 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     AdminDashboardComponent,
     AdminBookingComponent,
     FilterPipe,
+    EmployeeAddComponent,
+    EmployeeEditComponent,
+    EmployeeShowComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

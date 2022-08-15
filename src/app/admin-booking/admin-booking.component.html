@@ -62,7 +62,7 @@
                 <td data-label="Booking Date">{{ bookingdtls.DateOfBooking |date:'MMMM dd, yyyy - EEEE' }}</td>
                 <td data-label="TimeSlot">{{ bookingdtls.TimeSlot }}</td>
                 <td>
-                  <small *ngIf="bookingdtls.DateOfBooking<todayISO" class="m-2">completed</small>
+                  <small *ngIf="bookingdtls.DateOfBooking<todayISO" class="m-2">completed</small><br>
                   <button class="btn btn-secondary" style="cursor:pointer" *ngIf="bookingdtls.DateOfBooking<todayISO" (click)="deleteBooking(bookingdtls)">remove</button>
                   <!-- <button class="btn btn-warning" style="cursor:pointer"  (click)= "editBooking(bookingdtls)" style="margin-right:25px;"> Edit</button> -->
                  
