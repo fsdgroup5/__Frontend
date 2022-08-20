@@ -8,22 +8,22 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class EmployeeShowComponent implements OnInit {
 
-  Employee:any = [];
-  constructor(private employeeService: EmployeeService) { 
+  Employee: any = [];
+  constructor(private employeeService: EmployeeService) {
     this.readEmployee();
   }
-  ngOnInit() {}
-  readEmployee(){
+  ngOnInit() { }
+  readEmployee() {
     this.employeeService.getEmployees().subscribe((data) => {
-     this.Employee = data;
-    })    
+      this.Employee = data;
+    })
   }
   removeEmployee(employee: { _id: any; }, index: any) {
-    if(window.confirm('Are you sure?')) {
-        this.employeeService.deleteEmployee(employee._id).subscribe((data) => {
-          this.Employee.splice(index, 1);
-        }
-      )    
+    if (window.confirm('Are you sure?')) {
+      this.employeeService.deleteEmployee(employee._id).subscribe((data) => {
+        this.Employee.splice(index, 1);
+      }
+      )
     }
   }
 

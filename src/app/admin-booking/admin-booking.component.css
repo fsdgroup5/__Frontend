@@ -1,129 +1,149 @@
-.admin-booking{
+.admin-booking {
     padding: 60px 0px;
 }
-h3{
+
+h3 {
     color: rgb(12, 12, 156);
 }
 
 
-.filter-box{
+.filter-box {
     padding: 25px 0px;
     margin: 15px 0px;
     background-color: #f2f2f2;
 }
-.search-box{
+
+.search-box {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     padding-left: 30px;
 }
+
 .filter-box .col-form-label {
     font-size: 16px;
 }
-.filter-box input{
+
+.filter-box input {
     width: 250px;
     padding: 10px 15px;
     border-radius: 8px;
-    border: 1px solid rgb(154, 154, 154); 
+    border: 1px solid rgb(154, 154, 154);
 }
-.filter-box input[type="date"]{
+
+.filter-box input[type="date"] {
     width: 170px;
 }
-.history_btn{
+
+.history_btn {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-.history_btn button{
+
+.history_btn button {
     padding: 10px 15px;
 }
-.dates_input{
+
+.dates_input {
     display: flex;
     flex-direction: row;
 }
-.box_input{
+
+.box_input {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.box_input label{
+.box_input label {
     font-size: 14px;
 }
-@media(min-width:768px) and (max-width:1200px){ 
-    .search-by-date{
-      order: 3;
-      margin-left: 15px;
-      margin-top: 25px;
-      display: flex;
-flex-direction: row;
-align-items: center;
+
+@media(min-width:768px) and (max-width:1200px) {
+    .search-by-date {
+        order: 3;
+        margin-left: 15px;
+        margin-top: 25px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
-    .history_btn .btn-warning{
+
+    .history_btn .btn-warning {
         margin-right: 10px;
     }
-    .history_btn button{
+
+    .history_btn button {
         font-size: 14px;
     }
-    .dates_input{
+
+    .dates_input {
         margin-left: 12px;
         padding-left: 12px;
         border-left: 1px solid rgb(142, 142, 142);
 
     }
-  }
-@media(max-width:768px){
-    .filter-box{
+}
+
+@media(max-width:768px) {
+    .filter-box {
         padding: 25px 0px;
     }
-    .search-box{
+
+    .search-box {
         flex-direction: column;
         padding-left: 15px;
         align-items: center;
     }
-    .history_btn{
+
+    .history_btn {
         margin-top: 20px;
     }
-    .filter-box input[type="date"]{
+
+    .filter-box input[type="date"] {
         width: auto !important;
         font-size: 11px;
         padding: 10px 8px;
-    }  
-    .box_input:nth-child(2) input[type="date"]{
+    }
+
+    .box_input:nth-child(2) input[type="date"] {
         margin-left: 15px;
         font-size: 11px;
         padding: 10px 8px;
-    }  
-    .dropdown-admin.show{
-        
     }
-     .search-by-date {
+
+    .search-by-date {
         margin-top: 15px;
         display: flex;
         flex-direction: column;
         padding-left: 15px;
         align-items: center;
     }
-    .col-form-label{
+
+    .col-form-label {
         font-weight: bold;
         font-size: 14px !important;
     }
-    .box_input label{
+
+    .box_input label {
         font-size: 13px;
     }
-    .history_btn button{
+
+    .history_btn button {
         font-size: 12px;
         padding: 10px;
         margin: 0px 10px;
     }
-    .search-by-date 
-    .box_input{
+
+    .search-by-date .box_input {
         flex-direction: column;
     }
 }
-@media(max-width:450px){
-    .search-by-date input[type="date"]{
+
+@media(max-width:450px) {
+    .search-by-date input[type="date"] {
         max-width: 130px;
     }
 }

@@ -11,7 +11,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class EmployeeAddComponent implements OnInit {
   employeeForm!: FormGroup;
   submitted = false;
-  
+  usernameavailability: any
+
   constructor(
     public fb: FormBuilder,
     private router: Router,
@@ -20,7 +21,8 @@ export class EmployeeAddComponent implements OnInit {
   ) {
     this.mainForm();
   }
-  ngOnInit() {}
+  ngOnInit() {
+  }
   mainForm() {
     this.employeeForm = this.fb.group({
       name: ['', [Validators.required]],
@@ -28,12 +30,12 @@ export class EmployeeAddComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
+          Validators.pattern('[A-Za-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
         ],
       ],
-      username: ['', [Validators.required,Validators.minLength(6)]],
-      Department: ['', [Validators.required,Validators.minLength(3)]],
-      password : ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!#%*?&])[A-Za-zd$@$!#%*?&].{8,15}')]],
+      username: ['', [Validators.required, Validators.minLength(6)]],
+      Department: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!#%*?&])[A-Za-zd$@$!#%*?&].{8,15}')]],
     });
   }
   // Getter to access form control
@@ -46,7 +48,7 @@ export class EmployeeAddComponent implements OnInit {
     if (!this.employeeForm.valid) {
       console.log("idiot");
       return false;
-      
+
     } else {
       return this.employeeService.createEmployee(this.employeeForm.value).subscribe({
         complete: () => {
@@ -60,4 +62,19 @@ export class EmployeeAddComponent implements OnInit {
     }
   }
 
+  usernameAvailability() {
+    var user = this.employeeForm.get('username').value
+    if(user.length>0){
+      this.employeeService.usernameAvailability(user).subscribe((data) => {
+        user = JSON.parse(JSON.stringify(data));
+      }, err => {
+        if (err.status == 200) {
+          this.usernameavailability = false
+        }
+        else if (err.status == 401) {
+          this.usernameavailability = true
+        }
+      })
+    }
+  }
 }

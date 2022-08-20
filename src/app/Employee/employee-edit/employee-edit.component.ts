@@ -19,7 +19,7 @@ export class EmployeeEditComponent implements OnInit {
     private actRoute: ActivatedRoute,
     private employeeService: EmployeeService,
     private router: Router
-  ) {}
+  ) { }
   ngOnInit() {
     this.updateEmployee();
     let id = this.actRoute.snapshot.paramMap.get('id');
@@ -30,12 +30,12 @@ export class EmployeeEditComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
+          Validators.pattern('[A-Za-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
         ],
       ],
-      username: ['', [Validators.required,Validators.minLength(6)]],
+      username: ['', [Validators.required, Validators.minLength(6)]],
       Department: ['', [Validators.required]],
-      password : ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$#!%*?&])[A-Za-z\d$@#$!%*?&].{8,}')]],
+      password: ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$#!%*?&])[A-Za-z\d$@#$!%*?&].{8,}')]],
     });
   }
   // Getter to access form control
@@ -49,7 +49,7 @@ export class EmployeeEditComponent implements OnInit {
         email: data['email'],
         Department: data['Department'],
         username: data['username'],
-        password:data['password'],
+        password: data['password'],
       });
     });
   }
@@ -60,21 +60,20 @@ export class EmployeeEditComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
+          Validators.pattern('[A-Za-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
         ],
       ],
-      username: ['', [Validators.required,Validators.minLength(6)]],
+      username: ['', [Validators.required, Validators.minLength(6)]],
       Department: ['', [Validators.required]],
-      password : ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%#*?&])[A-Za-z\d$@$!%#*?&].{8,}')]],
+      password: ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%#*?&])[A-Za-z\d$@$!%#*?&].{8,}')]],
     });
   }
   onSubmit() {
     this.submitted = true;
     if (!this.editForm.valid) {
       return false;
-    } 
-    else 
-    {
+    }
+    else {
       if (window.confirm('Are you sure?')) {
         let id = this.actRoute.snapshot.paramMap.get('id');
         this.employeeService.updateEmployee(id, this.editForm.value).subscribe({

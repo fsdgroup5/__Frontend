@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,6 @@ export class UserGuard implements CanActivate {
     }
     else{
         this._router.navigate(['userLogin'])
-        // this._router.navigate([''])
-        // alert('You are not an user');
         return false
     }
   }

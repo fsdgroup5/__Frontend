@@ -5,5 +5,10 @@
 }
 .collapsetable{
     border-collapse: collapse;
-    border: 3px solid blue;
+    border: 2px solid blue;
     }
+td[data-label="Email"]{
+    word-wrap: break-word;
+    padding-left: 10px;
+    padding-right: 10px;
+}

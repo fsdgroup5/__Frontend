@@ -17,7 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { HomeComponent } from './home/home.component'; 
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { UserbookingComponent } from './userbooking/userbooking.component';
 import { CalenderComponent } from './calender/calender.component';

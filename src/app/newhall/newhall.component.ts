@@ -22,8 +22,6 @@ export class NewhallComponent implements OnInit {
   }
   Addhall(){ 
     this.hallService.Newhall(this.NewHall);
-    // alert("Success");
-    // this.router.navigate(['/Halls']);
   }
   
 }

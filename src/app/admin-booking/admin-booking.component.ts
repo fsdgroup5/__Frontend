@@ -13,10 +13,10 @@ export class AdminBookingComponent implements OnInit {
   Today = new Date();
   pageTitle: string = 'All Booking Details';
   searchText: string = '';
-  upcoming:any
-  booking_history:any
+  upcoming: any
+  booking_history: any
   next = new Date();
-  todayISO:any
+  todayISO: any
 
 
   dates = {
@@ -36,51 +36,47 @@ export class AdminBookingComponent implements OnInit {
 
   ngOnInit(): void {
     this.upcomingBookings();
-    this.upcoming=true
-    this.todayISO = new Date(this.next.getTime() - (this.next.getTimezoneOffset() * 60000)).toISOString().substring(0,10);
-   
+    this.upcoming = true
+    this.todayISO = new Date(this.next.getTime() - (this.next.getTimezoneOffset() * 60000)).toISOString().substring(0, 10);
+
   }
 
   dateFilter() {
-   
-    if (this.dates.startDate.length > 0 ) {
-      $('#datepicker-endDate').attr('min', this.dates.startDate);
-        if(this.dates.endDate.length>0){
-          this.bookingservice.date_filter(this.dates.startDate, this.dates.endDate).subscribe((Data) => {
-            this.bookingdtls = JSON.parse(JSON.stringify(Data));
-          })
 
-        }
-        else{
-          // this.bookingservice.getAllDetails().subscribe((Data) => {
-          //   this.bookingdtls = JSON.parse(JSON.stringify(Data));
-          //   console.log(this.bookingdtls);
-          // })
-          this.upcomingBookings()
-        }
+    if (this.dates.startDate.length > 0) {
+      $('#datepicker-endDate').attr('min', this.dates.startDate);
+      if (this.dates.endDate.length > 0) {
+        this.bookingservice.date_filter(this.dates.startDate, this.dates.endDate).subscribe((Data) => {
+          this.bookingdtls = JSON.parse(JSON.stringify(Data));
+        })
+
+      }
+      else {
+        this.upcomingBookings()
+      }
     }
     else {
       this.upcomingBookings()
-      $('#datepicker-endDate').val("") ;
+      $('#datepicker-endDate').val("");
     }
   }
-bookingHistory() {
-  
-  this.upcoming=false
-  this.booking_history=true
-    this.bookingservice.getBookingHistory().subscribe((Data)=>{
+  bookingHistory() {
+
+    this.upcoming = false
+    this.booking_history = true
+    this.bookingservice.getBookingHistory().subscribe((Data) => {
       this.bookingdtls = JSON.parse(JSON.stringify(Data));
-       console.log(this.bookingdtls); 
-     
-  })
+      console.log(this.bookingdtls);
+
+    })
   }
-upcomingBookings() {
-  this.booking_history=false
-  this.upcoming=true
-  this.bookingservice.getUpcomingBookings().subscribe((Data)=>{
-    this.bookingdtls = JSON.parse(JSON.stringify(Data));
-     console.log(this.bookingdtls);
-})
+  upcomingBookings() {
+    this.booking_history = false
+    this.upcoming = true
+    this.bookingservice.getUpcomingBookings().subscribe((Data) => {
+      this.bookingdtls = JSON.parse(JSON.stringify(Data));
+      console.log(this.bookingdtls);
+    })
   }
   editBooking(bookingdtls: any) { }
 

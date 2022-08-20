@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,32 +10,31 @@ import { Router } from '@angular/router';
 
 
 export class HeaderComponent implements OnInit {
-  constructor(public _auth:AuthService,
-    private _router:Router) { }
-  title: String="ICTAK Hall Booking Portal"
+  constructor(public _auth: AuthService,
+    private _router: Router) { }
+  title: String = "ICTAK Hall Booking Portal"
 
- 
+
 
   ngOnInit(): void {
-    let is_user =localStorage.getItem('is_user');
+    let is_user = localStorage.getItem('is_user');
   }
-  is_user(){
+  is_user() {
 
-    if(!!localStorage.getItem('is_user'))
-    return true
-    else 
-    return false
+    if (!!localStorage.getItem('is_user'))
+      return true
+    else
+      return false
   }
 
-  logoutUser(){
+  logoutUser() {
     localStorage.removeItem('token')
     localStorage.removeItem('username');
     localStorage.removeItem('is_user')
     this._router.navigate([''])
   }
 
-  logoutAdmin()
-  {
+  logoutAdmin() {
     localStorage.removeItem('token')
     localStorage.removeItem('isAdmin')
     this._router.navigate([''])

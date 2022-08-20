@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,26 +8,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit {
-  User={username:'',
-  password:''};
-  error_msg:any;
+  User = {
+    username: '',
+    password: ''
+  };
+  error_msg: any;
 
-  constructor(private _auth: AuthService, private _router:Router) { }
-    loginUser()
-  {
+  constructor(private _auth: AuthService, private _router: Router) { }
+  loginUser() {
     this._auth.loginUser(this.User)
-    .subscribe(
-      res=>{
-        localStorage.setItem('token',res.token)
-        localStorage.setItem("username", this.User.username.toString());
-        localStorage.setItem('is_user','true');
-        this._router.navigate(['/userbooking']);
-      }
-      ,err=>{
-        this.error_msg=true
-        setTimeout(()=>{this.error_msg=false},4000)
-      }
-    )
+      .subscribe(
+        res => {
+          localStorage.setItem('token', res.token)
+          localStorage.setItem("username", this.User.username.toString());
+          localStorage.setItem('is_user', 'true');
+          this._router.navigate(['/userbooking']);
+        }
+        , err => {
+          this.error_msg = true
+          setTimeout(() => { this.error_msg = false }, 4000)
+        }
+      )
 
   }
 

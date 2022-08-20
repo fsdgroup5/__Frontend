@@ -56,4 +56,8 @@ export class EmployeeService {
       return errorMessage;
     });
   }
+
+  usernameAvailability(user:any){
+    return this.http.get(`${this.baseUri}/usernamecheck/`+user)
+  }
 }

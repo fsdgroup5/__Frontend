@@ -9,21 +9,26 @@
     border: 1px solid black;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
+    position: relative;
+    z-index: 3;
 }
-.new-employee-form .form-group{
-    margin-bottom: 30px;
+.errors span{
+    font-size: 12px;
+}
+.register-employee .form-group{
+    margin-bottom: 12px;
     display: flex;
     flex-direction: column;
 }
-.new-employee-form label{
-    margin-bottom: 20px ;
+.register-employee label{
+    margin-bottom: 10px ;
     font-weight: 600 !important;
 }
-.new-employee-form input{
-    padding: 15px ;
+.register-employee input{
+    padding: 10px ;
     border-radius: 10px;
-    border: 1px solid rgb(36, 118, 169);
+    border: 1px solid rgb(92, 168, 215);
 }
-.new-employee-form input.ng-dirty.ng-invalid {
-    color: red
+.register-employee input.ng-dirty.ng-invalid {
+    border:1px solid red
   }
