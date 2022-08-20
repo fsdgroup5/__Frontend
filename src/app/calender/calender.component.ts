@@ -64,7 +64,7 @@ export class CalenderComponent implements OnInit {
     var date = arg.date
     today.setHours(0, 0, 0, 0);
 
-    if (daysBetweenDates < 15 && date < today) {
+    if (daysBetweenDates < 15 && date > today) {
       display(arg.dateStr);
       this.error = false;
       this.error_msg = ''
@@ -158,7 +158,7 @@ export class CalenderComponent implements OnInit {
     var today = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString();
     var StartTime = Time.substring(0, 8);
     var givenDate2 = this.Booking_Details.Date + 'T' + StartTime + 'Z'
-    if (today < givenDate2) {
+    if (today > givenDate2) {
       this.error = true;
       this.error_msg = 'timeslot not available'
     }
