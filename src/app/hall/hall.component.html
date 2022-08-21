@@ -13,7 +13,7 @@
                     <img [src]="i.Image" class="hall-image">
                     <h3><b>{{i.HallName}}</b></h3>
                     
-                <div class="btn-box">
+                <div class="btn-box" *ngIf="_auth.adminLoggedIn() ">
                     <button class="btn btn-success me-3" (click)="editHall(i)">Edit</button>
                     <button class="btn btn-danger" (click)="deleteHall(i)">Delete</button>
                     </div>

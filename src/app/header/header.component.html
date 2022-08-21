@@ -35,7 +35,9 @@
             <li><a class="dropdown-item" routerLink="/Halls" routerLinkActive="active">Hall details</a></li>
           </ul>
         </li> -->
-
+        <li class="nav-item">
+          <a class="nav-link text-white"  routerLink="/Halls" routerLinkActive="active" *ngIf ="is_user()" > Hall Details</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link text-white"  routerLink ="/userbooking" routerLinkActive="active" *ngIf ="is_user()" > User Home</a>
         </li>

@@ -22,7 +22,7 @@ import { EmployeeShowComponent } from './Employee/employee-show/employee-show.co
 const routes: Routes = [
   {path:'AddHall',canActivate:[AuthGuard],component:NewhallComponent},
   {path:'update',canActivate:[AuthGuard],component:EditHallComponent},
-  {path:'Halls',canActivate:[AuthGuard],component:HallComponent},
+  {path:'Halls',component:HallComponent},
   {path:'',component:HomeComponent},
   {path:'adminLogin',component:AdminLoginComponent},
   {path:'userLogin',component:UserLoginComponent},
@@ -30,9 +30,9 @@ const routes: Routes = [
   {path:'calendar',canActivate:[UserGuard],component:CalenderComponent},
   {path:'adminDashboard',canActivate:[AuthGuard],component:AdminDashboardComponent},
   {path :'Adminbooking',canActivate:[AuthGuard],component:AdminBookingComponent},
-  {path:'employeeAdd',component:EmployeeAddComponent},
-  {path:'employeeShow',component:EmployeeShowComponent},
-  {path:'employeeEdit/:id',component:EmployeeEditComponent}
+  {path:'employeeAdd',canActivate:[AuthGuard],component:EmployeeAddComponent},
+  {path:'employeeShow',canActivate:[AuthGuard],component:EmployeeShowComponent},
+  {path:'employeeEdit/:id',canActivate:[AuthGuard],component:EmployeeEditComponent}
 ];
 
 @NgModule({

@@ -119,6 +119,15 @@ ul {
 .fc-theme-standard td{
   border: 1px solid #cccccc !important;
 }
+.fc-daygrid-event{
+  padding: 4px !important;
+}
+.fc-direction-ltr .fc-daygrid-event .fc-event-time{
+  font-size: 11px;
+}
+.fc-daygrid-dot-event .fc-event-title{
+  font-size: 11px;
+}
 @media (max-width:576px) {
   .fc .fc-toolbar.fc-header-toolbar {
   flex-direction: column;

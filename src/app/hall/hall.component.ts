@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HallService } from '../services/hall.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-hall',
   templateUrl: './hall.component.html',
@@ -13,7 +14,7 @@ export class HallComponent implements OnInit {
     Location:'',
     Image:''
   }]
-  constructor(private hallService:HallService, private router:Router) {
+  constructor(private hallService:HallService, private router:Router ,public _auth:AuthService) {
     
    }
 
